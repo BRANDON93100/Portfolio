@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projet BTS – Administration Serveur (WordPress / OVH)</title>
+
+  <!-- Fonts / Icons / Tailwind -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: #0a0219;
+      color: #f3e8ff;
+      overflow-x: hidden;
+    }
+
+    /* Cards + titles */
+    .card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(168, 85, 247, 0.22);
+      border-radius: 20px;
+      padding: 2rem;
+      transition: all .25s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 22px rgba(168, 85, 247, 0.18);
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #c084fc;
+      margin-bottom: 1.25rem;
+      line-height: 1.15;
+    }
+
+    .mini-title {
+      color: #d8b4fe;
+      font-weight: 700;
+      margin-bottom: .5rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      color: #e9d5ff;
+      padding: .35rem .8rem;
+      border-radius: 9999px;
+      font-size: .85rem;
+      font-weight: 700;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #7e22ce, #a855f7);
+      color: #fff;
+      padding: 0.55rem 1.2rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      transition: all 0.25s ease;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      white-space: nowrap;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(168, 85, 247, 0.45);
+    }
+
+    /* Link retour */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      color: #c084fc;
+      font-weight: 700;
+      text-decoration: none;
+      margin-bottom: 1.25rem;
+    }
+    .back-link:hover { text-decoration: underline; }
+
+    /* Preuves image */
+    .proof-img {
+      border-radius: 14px;
+      border: 1px solid rgba(168, 85, 247, 0.25);
+      box-shadow: 0 10px 18px rgba(0,0,0,.25);
+    }
+
+    /* ===== MODE JOUR (mêmes idées que ton portfolio) ===== */
+    body.light {
+      background: #f9fafb;
+      color: #111827;
+    }
+    body.light .card {
+      background: #f5f3ff;
+      border: 1px solid rgba(109, 40, 217, 0.25);
+    }
+    body.light .card:hover {
+      box-shadow: 0 10px 22px rgba(109, 40, 217, 0.14);
+    }
+    body.light .section-title { color: #6d28d9; }
+    body.light .mini-title { color: #4c1d95; }
+    body.light .badge {
+      background: rgba(109, 40, 217, 0.10);
+      border-color: rgba(109, 40, 217, 0.25);
+      color: #4c1d95;
+    }
+    body.light .btn-primary {
+      background: linear-gradient(90deg, #6d28d9, #9333ea);
+    }
+    body.light .back-link { color: #111827; }   /* ✅ noir en mode jour */
+    body.light .conclusion-text { color: #111827; } /* ✅ conclusion lisible en mode jour */
+
+    /* Petit header top */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(18, 0, 33, 0.78);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(168, 85, 247, 0.25);
+    }
+    body.light .topbar {
+      background: rgba(255,255,255,0.85);
+      border-bottom: 1px solid #e5e7eb;
+    }
+    
+    /* ===== CORRECTION LISIBILITÉ MODE JOUR ===== */
+body.light p,
+body.light li,
+body.light span,
+body.light div {
+  color: #111827; /* noir lisible */
+}
+
+body.light .text-gray-300,
+body.light .text-gray-400 {
+  color: #111827 !important;
+}
+
+body.light .conclusion-text {
+  color: #111827;
+}
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <span class="badge"><i class="fa-solid fa-server"></i> Administration Serveur</span>
+        <span class="text-sm text-gray-300 hidden sm:inline">Projet BTS – WordPress / OVH</span>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button id="themeToggle" class="btn-primary w-11 h-11 p-0 rounded-full" aria-label="Changer de thème">
+          <i id="themeIcon" class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <main class="px-6 py-12 max-w-5xl mx-auto">
+
+    <a href="index.html#skills" class="back-link">
+      <i class="fa-solid fa-arrow-left"></i> Retour au portfolio
+    </a>
+
+    <h1 class="section-title">
+      🛠️ Dépannage WordPress (OVH / phpMyAdmin / Cyberduck)
+    </h1>
+
+    <!-- Résumé rapide -->
+    <div class="card mb-8">
+      <div class="flex flex-wrap gap-2 mb-4">
+        <span class="badge"><i class="fa-solid fa-globe"></i> WordPress</span>
+        <span class="badge"><i class="fa-solid fa-database"></i> MySQL / phpMyAdmin</span>
+        <span class="badge"><i class="fa-solid fa-cloud"></i> OVH</span>
+        <span class="badge"><i class="fa-solid fa-folder-open"></i> Cyberduck (SFTP/FTP)</span>
+      </div>
+
+      <p class="text-gray-300">
+        J’ai résolu un problème de connexion sur un site WordPress hébergé chez OVH.
+        L’intervention a consisté à vérifier la configuration serveur, les accès base de données,
+        puis à mettre à jour les identifiants (wp-config.php) pour rétablir le fonctionnement du site.
+      </p>
+    </div>
+
+    <!-- Contexte -->
+    <div class="card mb-8">
+      <h2 class="mini-title">📌 Contexte</h2>
+      <p class="text-gray-300">
+        Le site WordPress n’arrivait plus à se connecter à la base de données (erreur de connexion).
+        L’objectif était d’identifier la cause (identifiants, droits, base, configuration) et de remettre
+        le service en ligne rapidement.
+      </p>
+    </div>
+
+    <!-- Objectifs -->
+    <div class="card mb-8">
+      <h2 class="mini-title">🎯 Objectifs</h2>
+      <ul class="list-disc list-inside text-gray-300 space-y-1">
+        <li>Rétablir l’accès au site WordPress (service web)</li>
+        <li>Vérifier la configuration serveur et les accès à la base de données</li>
+        <li>Mettre à jour de façon sûre les identifiants dans le fichier <strong>wp-config.php</strong></li>
+        <li>Valider le correctif par des tests de fonctionnement</li>
+      </ul>
+    </div>
+
+    <!-- Étapes -->
+    <div class="card mb-8">
+      <h2 class="mini-title">🧩 Étapes réalisées (procédure)</h2>
+      <ol class="list-decimal list-inside text-gray-300 space-y-2">
+        <li>Constat de l’erreur WordPress (connexion BDD indisponible).</li>
+        <li>Connexion à l’hébergement OVH + accès à <strong>phpMyAdmin</strong> pour contrôler la base et l’utilisateur.</li>
+        <li>Vérification / réinitialisation du <strong>mot de passe MySQL</strong> si nécessaire.</li>
+        <li>Connexion via <strong>Cyberduck</strong> (FTP/SFTP) pour accéder aux fichiers WordPress.</li>
+        <li>Mise à jour de <strong>wp-config.php</strong> (DB_NAME, DB_USER, DB_PASSWORD, DB_HOST).</li>
+        <li>Test complet : chargement du site + navigation + formulaire / pages.</li>
+      </ol>
+    </div>
+
+    <!-- Résultats -->
+    <div class="card mb-8">
+      <h2 class="mini-title">✅ Résultats</h2>
+      <p class="text-gray-300">
+        Le site a retrouvé un fonctionnement normal après mise à jour de la configuration.
+        La base de données est de nouveau accessible et l’erreur de connexion a disparu.
+      </p>
+    </div>
+
+    <!-- Compétences BTS -->
+    <div class="card mb-10">
+      <h2 class="mini-title">🎓 Compétences mobilisées</h2>
+      <ul class="list-disc list-inside text-gray-300 space-y-1">
+        <li><strong>Administration serveur</strong> : dépannage d’un service web hébergé</li>
+        <li><strong>Supervision / diagnostic</strong> : analyse d’une panne et validation</li>
+        <li><strong>Données (secondaire)</strong> : contrôle des accès MySQL via phpMyAdmin</li>
+        <li><strong>Sécurité (bonne pratique)</strong> : modification contrôlée d’identifiants + tests</li>
+      </ul>
+    </div>
+
+    <!-- Preuves -->
+    <div class="card">
+      <h2 class="mini-title">🖼️ Preuves / Captures</h2>
+        <p class="text-gray-300 mb-6">
+            Les captures ci-dessous permettent de démontrer les actions réalisées dans le cadre de
+            l’administration du serveur. Elles illustrent les différentes étapes du dépannage :
+            accès à l’hébergement OVH, contrôle des paramètres serveur,
+            gestion des accès à la base de données via phpMyAdmin,
+            modification du fichier de configuration <strong>wp-config.php</strong>,
+            puis validation du bon fonctionnement du service WordPress par des tests.
+        </p>
+
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <div>
+          <img class="proof-img w-full mb-3" src="screens/ovh-panel.png" alt="Interface OVH - hébergement">
+          <p class="text-sm text-gray-300">Accès au panel OVH pour l’hébergement et les paramètres du service.</p>
+        </div>
+
+        <div>
+          <img class="proof-img w-full mb-3" src="screens/phpmyadmin-user.png" alt="phpMyAdmin - utilisateur MySQL">
+          <p class="text-sm text-gray-300">Contrôle de la base et de l’utilisateur MySQL dans phpMyAdmin.</p>
+        </div>
+
+        <div>
+          <img class="proof-img w-full mb-3" src="screens/cyberduck-ftp.png" alt="Cyberduck - connexion FTP/SFTP">
+          <p class="text-sm text-gray-300">Connexion aux fichiers WordPress via Cyberduck (FTP/SFTP).</p>
+        </div>
+
+        <div>
+          <img class="proof-img w-full mb-3" src="screens/wp-config-edit.png" alt="Modification wp-config.php">
+          <p class="text-sm text-gray-300">Mise à jour de <strong>wp-config.php</strong> avec les bons identifiants.</p>
+        </div>
+
+      </div>
+
+      <div class="mt-6">
+        <p class="conclusion-text font-semibold">
+          Conclusion : le service WordPress a été rétabli après diagnostic + correction de la configuration
+          et validation par tests.
+        </p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="py-8 text-center text-sm text-gray-500">
+    © 2025 — Fiche projet BTS (Administration Serveur)
+  </footer>
+
+  <script>
+    // ===== Thème jour / nuit (même logique que ton portfolio) =====
+    document.addEventListener('DOMContentLoaded', function () {
+      const themeToggle = document.getElementById('themeToggle');
+      const themeIcon = document.getElementById('themeIcon');
+      const body = document.body;
+
+      if (!themeToggle || !themeIcon) return;
+
+      // Par défaut : sombre
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        body.classList.add('light');
+        themeIcon.classList.replace('fa-moon', 'fa-sun');
+      } else {
+        body.classList.remove('light');
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+        localStorage.setItem('theme', 'dark');
+      }
+
+      themeToggle.addEventListener('click', () => {
+        body.classList.toggle('light');
+        const isLight = body.classList.contains('light');
+        themeIcon.classList.toggle('fa-sun', isLight);
+        themeIcon.classList.toggle('fa-moon', !isLight);
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+      });
+    });
+  </script>
+
+</body>
+</html>

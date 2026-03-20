@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projet BTS – Base de données (MySQL / OVH / GLPI)</title>
+
+  <!-- Fonts / Icons / Tailwind -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body{
+      font-family:'Outfit',sans-serif;
+      background:#0a0219;
+      color:#f3e8ff;
+      overflow-x:hidden;
+    }
+
+    /* ===== Cartes / titres ===== */
+    .card{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(168,85,247,.22);
+      border-radius:20px;
+      padding:2rem;
+      transition:all .25s ease;
+    }
+    .card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 10px 22px rgba(168,85,247,.18);
+    }
+
+    .section-title{
+      font-size:2.2rem;
+      font-weight:700;
+      color:#c084fc;
+      margin-bottom:1.5rem;
+      line-height:1.15;
+    }
+    .mini-title{
+      color:#d8b4fe;
+      font-weight:800;
+      margin-bottom:.5rem;
+    }
+
+    /* ===== Badges ===== */
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+      background:rgba(168,85,247,.15);
+      border:1px solid rgba(168,85,247,.3);
+      color:#e9d5ff;
+      padding:.35rem .8rem;
+      border-radius:9999px;
+      font-size:.85rem;
+      font-weight:800;
+      white-space:nowrap;
+    }
+
+    /* ===== Bouton thème ===== */
+    .btn-primary{
+      background:linear-gradient(90deg,#7e22ce,#a855f7);
+      color:#fff;
+      width:44px;
+      height:44px;
+      border-radius:9999px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border:none;
+      cursor:pointer;
+      transition:all .25s ease;
+    }
+    .btn-primary:hover{
+      transform:translateY(-2px);
+      box-shadow:0 5px 20px rgba(168,85,247,.45);
+    }
+
+    /* ===== Topbar ===== */
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:60;
+      background:rgba(18,0,33,.80);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(168,85,247,.25);
+    }
+
+    .back-link{
+      display:inline-flex;
+      align-items:center;
+      gap:.55rem;
+      font-weight:800;
+      color:#c084fc;
+      text-decoration:none;
+    }
+    .back-link:hover{ text-decoration:underline; }
+
+    /* ===== Preuves ===== */
+    .proof-img{
+      border-radius:14px;
+      border:1px solid rgba(168,85,247,.25);
+      box-shadow:0 10px 18px rgba(0,0,0,.25);
+    }
+
+    /* ===== MODE JOUR ===== */
+    body.light{
+      background:#f9fafb;
+      color:#111827;
+    }
+    body.light .topbar{
+      background:rgba(255,255,255,.90);
+      border-bottom:1px solid #e5e7eb;
+    }
+    body.light .card{
+      background:#f5f3ff;
+      border:1px solid rgba(109,40,217,.22);
+    }
+    body.light .section-title{ color:#6d28d9; }
+    body.light .mini-title{ color:#4c1d95; }
+    body.light .badge{
+      background:rgba(109,40,217,.10);
+      border-color:rgba(109,40,217,.25);
+      color:#4c1d95;
+    }
+    body.light .btn-primary{
+      background:linear-gradient(90deg,#6d28d9,#9333ea);
+    }
+    body.light .back-link{ color:#111827; }
+
+    /* ✅ Force lisibilité des classes Tailwind en mode jour */
+    body.light .text-gray-300,
+    body.light .text-gray-400,
+    body.light p,
+    body.light li,
+    body.light strong,
+    body.light span,
+    body.light div{
+      color:#111827 !important;
+    }
+    body.light h2{ color:#6d28d9 !important; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== TOP BAR ===== -->
+  <div class="topbar">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+
+      <!-- Gauche : badge + texte -->
+      <div class="flex items-center gap-2">
+        <span class="badge">
+          <i class="fa-solid fa-database"></i>
+          Base de données
+        </span>
+        <span class="text-sm text-gray-300">
+          Projet BTS – MySQL / OVH / GLPI
+        </span>
+      </div>
+
+      <!-- Droite : thème -->
+      <button id="themeToggle"
+        class="btn-primary w-11 h-11 p-0 rounded-full flex items-center justify-center"
+        aria-label="Changer de thème">
+        <i id="themeIcon" class="fa-solid fa-moon"></i>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- ===== CONTENU ===== -->
+  <main class="px-6 py-12 max-w-5xl mx-auto">
+
+    <!-- ✅ Retour direct sur les compétences -->
+    <a href="index.html#skills" class="back-link mb-6 inline-flex">
+      <i class="fa-solid fa-arrow-left"></i>
+      Retour aux compétences
+    </a>
+
+    <h1 class="section-title">
+      🗄️ Projet BTS – Gestion & sécurisation de bases MySQL (OVH / WordPress / GLPI)
+    </h1>
+
+    <!-- Résumé rapide -->
+    <div class="card mb-8">
+      <div class="flex flex-wrap gap-2 mb-4">
+        <span class="badge"><i class="fa-solid fa-database"></i> MySQL</span>
+        <span class="badge"><i class="fa-solid fa-toolbox"></i> phpMyAdmin</span>
+        <span class="badge"><i class="fa-solid fa-cloud"></i> OVH</span>
+        <span class="badge"><i class="fa-solid fa-ticket"></i> GLPI</span>
+        <span class="badge"><i class="fa-solid fa-globe"></i> WordPress</span>
+      </div>
+
+      <p class="text-gray-300">
+        J’ai travaillé sur l’exploitation et la sécurisation de bases de données MySQL utilisées par
+        des services web : un site WordPress hébergé chez OVH et un outil GLPI (tickets/inventaire).
+        L’objectif : garantir l’accès, corriger des problèmes de connexion et appliquer de bonnes pratiques (accès, tests, sécurité).
+      </p>
+    </div>
+
+    <!-- Contexte -->
+    <div class="card mb-8">
+      <h2 class="mini-title">📌 Contexte</h2>
+      <p class="text-gray-300">
+        Les applications comme WordPress et GLPI stockent leurs données dans une base MySQL
+        (utilisateurs, contenus, tickets, équipements, historique). Une mauvaise configuration ou un problème d’accès
+        peut bloquer un service complet. Ce projet met en avant la compréhension et la gestion de cet élément “critique”.
+      </p>
+    </div>
+
+    <!-- Objectifs -->
+    <div class="card mb-8">
+      <h2 class="mini-title">🎯 Objectifs</h2>
+      <ul class="list-disc list-inside text-gray-300 space-y-2">
+        <li>Comprendre le rôle de la base MySQL dans WordPress / GLPI</li>
+        <li>Vérifier l’existence de la base, des utilisateurs et des droits</li>
+        <li>Corriger une erreur de connexion (si besoin : réinitialisation mot de passe)</li>
+        <li>Valider le bon fonctionnement par des tests applicatifs</li>
+        <li>Appliquer des bonnes pratiques (accès, confidentialité, moindre privilège)</li>
+      </ul>
+    </div>
+
+    <!-- Actions / procédure -->
+    <div class="card mb-8">
+      <h2 class="mini-title">🧩 Actions réalisées</h2>
+      <ol class="list-decimal list-inside text-gray-300 space-y-2">
+        <li>Accès au panel OVH et ouverture de <strong>phpMyAdmin</strong>.</li>
+        <li>Contrôle de la base : présence, tables, cohérence générale.</li>
+        <li>Vérification de l’utilisateur MySQL associé (droits / permissions).</li>
+        <li>Si nécessaire : réinitialisation du mot de passe MySQL.</li>
+        <li>Mise à jour de la configuration côté service (ex : paramètres DB dans WordPress / GLPI).</li>
+        <li>Tests : ouverture du site / connexion GLPI / création ticket / navigation.</li>
+      </ol>
+    </div>
+
+    <!-- Bonnes pratiques -->
+    <div class="card mb-8">
+      <h2 class="mini-title">🛡️ Bonnes pratiques appliquées</h2>
+      <ul class="list-disc list-inside text-gray-300 space-y-2">
+        <li>Principe du moindre privilège : éviter des comptes MySQL trop permissifs.</li>
+        <li>Identifiants robustes et non réutilisés.</li>
+        <li>Vérification des accès (éviter l’exposition publique inutile).</li>
+        <li>Tests après changement (pour éviter les pannes cachées).</li>
+      </ul>
+    </div>
+
+    <!-- Résultats -->
+    <div class="card mb-10">
+      <h2 class="mini-title">✅ Résultats</h2>
+      <p class="text-gray-300">
+        Les services utilisant la base (WordPress / GLPI) fonctionnent correctement après vérification et ajustements.
+        Les accès sont maîtrisés et les tests confirment la stabilité de la connexion base ↔ application.
+      </p>
+    </div>
+
+    <!-- Compétences BTS -->
+    <div class="card mb-10">
+      <h2 class="mini-title">🎓 Compétences BTS mobilisées</h2>
+      <ul class="list-disc list-inside text-gray-300 space-y-2">
+        <li><strong>Base de données</strong> : exploitation d’un SGBD (MySQL) et gestion d’accès</li>
+        <li><strong>Administration / diagnostic</strong> : analyse d’un incident “connexion BDD”</li>
+        <li><strong>Sécurisation</strong> : bonnes pratiques sur identifiants et permissions</li>
+        <li><strong>Validation</strong> : tests fonctionnels après modification</li>
+      </ul>
+    </div>
+
+    <!-- PREUVES -->
+    <div class="card">
+      <h2 class="mini-title">🖼️ Preuves / Captures</h2>
+        <p class="text-gray-300 mb-6">
+            Les captures ci-dessous permettent de démontrer le bon fonctionnement des bases de données
+            et des services associés. Elles prouvent les différentes étapes de vérification et de test :
+            accès à l’hébergement OVH, gestion des utilisateurs MySQL via phpMyAdmin,
+            ainsi que la validation du fonctionnement applicatif sur WordPress et GLPI.
+        </p>
+
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <img class="proof-img w-full mb-3" src="screens/ovh-phpmyadmin.png" alt="OVH - accès phpMyAdmin">
+          <p class="text-sm text-gray-400">Accès OVH + ouverture de phpMyAdmin.</p>
+        </div>
+
+        <div>
+          <img class="proof-img w-full mb-3" src="screens/phpmyadmin-user-privileges.png" alt="phpMyAdmin - droits utilisateur">
+          <p class="text-sm text-gray-400">Vérification de l’utilisateur MySQL et de ses privilèges.</p>
+        </div>
+
+        <div>
+          <img class="proof-img w-full mb-3" src="screens/glpi-login.png" alt="GLPI - connexion">
+          <p class="text-sm text-gray-400">Test GLPI : connexion / accès à l’application.</p>
+        </div>
+
+        <div>
+          <img class="proof-img w-full mb-3" src="screens/glpi-ticket-test.png" alt="GLPI - ticket test">
+          <p class="text-sm text-gray-400">Test GLPI : création d’un ticket (preuve de fonctionnement).</p>
+        </div>
+      </div>
+
+      <div class="mt-6">
+        <p class="text-gray-300 font-semibold">
+          Conclusion : la base MySQL et ses accès ont été vérifiés/sécurisés, et les services (WordPress/GLPI)
+          ont été validés par tests.
+        </p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="py-10 text-center text-sm text-gray-500">
+    © 2026 — Fiche projet BTS (Base de données)
+  </footer>
+
+  <!-- ===== SCRIPT THEME (clé "theme" comme ton portfolio) ===== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const themeToggle = document.getElementById('themeToggle');
+      const themeIcon = document.getElementById('themeIcon');
+      const body = document.body;
+
+      if (!themeToggle || !themeIcon) return;
+
+      const savedTheme = localStorage.getItem('theme');
+
+      if (savedTheme === 'light') {
+        body.classList.add('light');
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+      } else {
+        body.classList.remove('light');
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+        localStorage.setItem('theme', 'dark');
+      }
+
+      themeToggle.addEventListener('click', () => {
+        body.classList.toggle('light');
+        const isLight = body.classList.contains('light');
+
+        themeIcon.classList.toggle('fa-sun', isLight);
+        themeIcon.classList.toggle('fa-moon', !isLight);
+
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+      });
+    });
+  </script>
+
+</body>
+</html>

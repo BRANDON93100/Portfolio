@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projet BTS – Accès Distant OpenVPN</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: #0a0219;
+      color: #f3e8ff;
+      overflow-x: hidden;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(168, 85, 247, 0.22);
+      border-radius: 20px;
+      padding: 2rem;
+      transition: all .25s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 22px rgba(168, 85, 247, 0.18);
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #c084fc;
+      margin-bottom: 1.5rem;
+      line-height: 1.15;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      color: #e9d5ff;
+      padding: .35rem .8rem;
+      border-radius: 9999px;
+      font-size: .85rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #7e22ce, #a855f7);
+      color: #fff;
+      width: 44px;
+      height: 44px;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      cursor: pointer;
+      transition: all .25s ease;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      background: rgba(18, 0, 33, 0.80);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(168, 85, 247, 0.25);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      font-weight: 800;
+      color: #c084fc;
+      text-decoration: none;
+    }
+
+    /* MODE JOUR */
+    body.light { background: #f9fafb; color: #111827; }
+    body.light .topbar { background: rgba(255,255,255,0.90); border-bottom: 1px solid #e5e7eb; }
+    body.light .card { background: #f5f3ff; border: 1px solid rgba(109, 40, 217, 0.22); }
+    body.light .section-title { color: #6d28d9; }
+    body.light .badge { background: rgba(109, 40, 217, 0.10); border-color: rgba(109, 40, 217, 0.25); color: #4c1d95; }
+    body.light .text-gray-300, body.light .text-gray-400, body.light p, body.light li, body.light strong, body.light span, body.light div { color: #111827 !important; }
+    body.light h2 { color: #6d28d9 !important; }
+  </style>
+</head>
+
+<body>
+
+<div class="topbar">
+  <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <span class="badge">
+        <i class="fa-solid fa-key"></i>
+        Accès Sécurisé
+      </span>
+      <span class="text-sm text-gray-300">
+        Projet BTS – Brandon Betancourt
+      </span>
+    </div>
+    <button id="themeToggle" class="btn-primary" aria-label="Toggle Theme">
+      <i id="themeIcon" class="fa-solid fa-moon"></i>
+    </button>
+  </div>
+</div>
+
+<main class="px-6 py-12 max-w-5xl mx-auto">
+
+ <a href="index.html#projet-openvpn" class="back-link mb-6 inline-flex">
+  <i class="fa-solid fa-arrow-left"></i>
+  Retour aux projets
+</a>
+
+  <h1 class="section-title">
+    🔑 Déploiement d'un tunnel VPN sécurisé (OpenVPN)
+  </h1>
+
+  <div class="card mb-8">
+    <h2 class="text-purple-300 font-semibold mb-2">📌 Pourquoi ce projet ?</h2>
+    <p class="text-gray-300">
+      Avec le développement du télétravail, les employés doivent accéder aux serveurs de l'entreprise depuis chez eux. J'ai mis en place un <strong>tunnel VPN</strong> permettant de chiffrer les données pour que personne ne puisse les intercepter sur Internet.
+    </p>
+  </div>
+
+  <div class="card mb-8">
+    <h2 class="text-purple-300 font-semibold mb-2">🎯 Les piliers techniques</h2>
+    <ul class="list-disc list-inside text-gray-400 space-y-3">
+      <li><strong>Serveur Linux (Debian) :</strong> Installation et durcissement du service OpenVPN.</li>
+      <li><strong>Certificats PKI :</strong> Création d'une "carte d'identité numérique" pour chaque utilisateur afin d'empêcher les connexions non autorisées.</li>
+      <li><strong>Chiffrement AES-256 :</strong> Utilisation d'un standard de sécurité militaire pour crypter les échanges.</li>
+    </ul>
+  </div>
+
+  <div class="card mb-8">
+    <h2 class="text-purple-300 font-semibold mb-2">🛠️ Ce que j'ai réalisé</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="p-4 bg-white/5 rounded-xl border border-purple-500/20">
+        <strong class="text-purple-300">Infrastructure PKI</strong>
+        <p class="text-sm text-gray-400">Génération des clés privées et publiques avec EasyRSA pour authentifier les clients.</p>
+      </div>
+      <div class="p-4 bg-white/5 rounded-xl border border-purple-500/20">
+        <strong class="text-purple-300">Routage Réseau</strong>
+        <p class="text-sm text-gray-400">Configuration du serveur pour qu'il "redirige" le trafic des télétravailleurs vers le réseau interne de l'entreprise.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-8">
+    <h2 class="text-purple-300 font-semibold mb-2">✅ Compétences validées</h2>
+    <p class="text-gray-300">
+      J'ai appris à maîtriser la <strong>cryptographie asymétrique</strong> et la gestion des accès distants. C'est une compétence cruciale pour garantir la continuité d'activité d'une entreprise en toute sécurité.
+    </p>
+  </div>
+
+  <div class="card mt-10">
+    <h2 class="text-purple-300 font-semibold mb-4">🖼️ Éléments de l'infrastructure</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="card text-center">
+        <div class="mb-3 text-4xl text-purple-400"><i class="fa-solid fa-file-shield"></i></div>
+        <p class="text-sm text-gray-400 font-semibold">Fichiers .ovpn</p>
+        <p class="text-xs text-gray-500">Profils de connexion sécurisés pour les clients.</p>
+      </div>
+      <div class="card text-center">
+        <div class="mb-3 text-4xl text-purple-400"><i class="fa-solid fa-lock"></i></div>
+        <p class="text-sm text-gray-400 font-semibold">Autorité (CA)</p>
+        <p class="text-xs text-gray-500">Gestion et signature des clés numériques.</p>
+      </div>
+      <div class="card text-center">
+        <div class="mb-3 text-4xl text-purple-400"><i class="fa-solid fa-terminal"></i></div>
+        <p class="text-sm text-gray-400 font-semibold">Logs Serveur</p>
+        <p class="text-xs text-gray-500">Monitoring des connexions actives en temps réel.</p>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="py-10 text-center text-sm text-gray-500">
+  © 2026 — Brandon Betancourt | Réseaux & Sécurité (BTS SIO)
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const body = document.body;
+    const savedTheme = localStorage.getItem('theme');
+
+    if (savedTheme === 'light') {
+      body.classList.add('light');
+      themeIcon.classList.replace('fa-moon', 'fa-sun');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('light');
+      const isLight = body.classList.contains('light');
+      themeIcon.classList.toggle('fa-sun', isLight);
+      themeIcon.classList.toggle('fa-moon', !isLight);
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+  });
+</script>
+
+</body>
+</html>

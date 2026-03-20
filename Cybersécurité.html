@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projet BTS – Sécurisation d’un formulaire</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: #0a0219;
+      color: #f3e8ff;
+      overflow-x: hidden;
+    }
+
+    /* ===== Cartes / titres ===== */
+    .card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(168, 85, 247, 0.22);
+      border-radius: 20px;
+      padding: 2rem;
+      transition: all .25s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 22px rgba(168, 85, 247, 0.18);
+    }
+
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #c084fc;
+      margin-bottom: 1.5rem;
+      line-height: 1.15;
+    }
+
+    /* ===== Badges ===== */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      color: #e9d5ff;
+      padding: .35rem .8rem;
+      border-radius: 9999px;
+      font-size: .85rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* ===== Bouton thème ===== */
+    .btn-primary {
+      background: linear-gradient(90deg, #7e22ce, #a855f7);
+      color: #fff;
+      width: 44px;
+      height: 44px;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      cursor: pointer;
+      transition: all .25s ease;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(168, 85, 247, 0.45);
+    }
+
+    /* ===== Topbar ===== */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      background: rgba(18, 0, 33, 0.80);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(168, 85, 247, 0.25);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      font-weight: 800;
+      color: #c084fc;
+      text-decoration: none;
+    }
+    .back-link:hover { text-decoration: underline; }
+
+    /* ===== Images preuves ===== */
+    .proof-img {
+      border-radius: 14px;
+      border: 1px solid rgba(168, 85, 247, 0.25);
+      box-shadow: 0 10px 18px rgba(0,0,0,.25);
+    }
+
+    /* ===== MODE JOUR ===== */
+    body.light {
+      background: #f9fafb;
+      color: #111827;
+    }
+
+    body.light .topbar {
+      background: rgba(255,255,255,0.90);
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    body.light .card {
+      background: #f5f3ff;
+      border: 1px solid rgba(109, 40, 217, 0.22);
+    }
+
+    body.light .section-title { color: #6d28d9; }
+
+    body.light .badge {
+      background: rgba(109, 40, 217, 0.10);
+      border-color: rgba(109, 40, 217, 0.25);
+      color: #4c1d95;
+    }
+
+    body.light .btn-primary {
+      background: linear-gradient(90deg, #6d28d9, #9333ea);
+    }
+
+    body.light .back-link {
+      color: #111827;
+    }
+
+    /* ✅ IMPORTANT : force tous les textes Tailwind à être lisibles en mode jour */
+    body.light .text-gray-300,
+    body.light .text-gray-400,
+    body.light p,
+    body.light li,
+    body.light strong,
+    body.light span,
+    body.light div {
+      color: #111827 !important;
+    }
+
+    body.light h2 {
+      color: #6d28d9 !important;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- ===== TOP BAR ===== -->
+<div class="topbar">
+  <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+
+    <!-- Gauche : badge + texte bien alignés -->
+    <div class="flex items-center gap-2">
+      <span class="badge">
+        <i class="fa-solid fa-shield-halved"></i>
+        Cybersécurité
+      </span>
+
+      <span class="text-sm text-gray-300">
+        Projet BTS – Sécurisation formulaire
+      </span>
+    </div>
+
+    <!-- Droite : bouton thème -->
+    <button id="themeToggle"
+      class="btn-primary w-11 h-11 p-0 rounded-full flex items-center justify-center"
+      aria-label="Changer de thème">
+      <i id="themeIcon" class="fa-solid fa-moon"></i>
+    </button>
+
+  </div>
+</div>
+
+
+  <!-- ===== CONTENU ===== -->
+  <main class="px-6 py-12 max-w-5xl mx-auto">
+
+
+    <a href="index.html#skills" class="back-link mb-6 inline-flex">
+  <i class="fa-solid fa-arrow-left"></i>
+  Retour au portfolio
+</a>
+
+
+    <h1 class="section-title">
+      🔐 Projet BTS – Sécurisation d’un formulaire de contact
+    </h1>
+
+    <div class="card mb-8">
+      <h2 class="text-purple-300 font-semibold mb-2">📌 Contexte</h2>
+      <p class="text-gray-300">
+        Dans le cadre de mon portfolio personnel en BTS SIO option SISR, j’ai développé
+        un formulaire de contact sécurisé afin d’éviter les envois automatisés (spam).
+      </p>
+    </div>
+
+    <div class="card mb-8">
+      <h2 class="text-purple-300 font-semibold mb-2">🎯 Objectifs</h2>
+      <ul class="list-disc list-inside text-gray-400">
+        <li>Empêcher les envois automatiques</li>
+        <li>Sécuriser un service web</li>
+        <li>Améliorer l’expérience utilisateur</li>
+        <li>Tester des scénarios de bots</li>
+      </ul>
+    </div>
+
+    <div class="card mb-8">
+      <h2 class="text-purple-300 font-semibold mb-2">🛠️ Solutions mises en œuvre</h2>
+      <ul class="list-disc list-inside text-gray-400">
+        <li>Champ honeypot invisible (anti-bot)</li>
+        <li>Délai minimal avant l’envoi</li>
+        <li>Blocage automatique des soumissions suspectes</li>
+        <li>Messages utilisateur animés</li>
+        <li>Tests via l’inspecteur du navigateur</li>
+      </ul>
+    </div>
+
+    <div class="card mb-8">
+      <h2 class="text-purple-300 font-semibold mb-2">🧪 Tests réalisés</h2>
+      <ul class="list-disc list-inside text-gray-400">
+        <li>Soumission trop rapide</li>
+        <li>Remplissage du champ honeypot</li>
+        <li>Simulation de bot via l’inspecteur</li>
+        <li>Envoi légitime après délai</li>
+      </ul>
+    </div>
+
+    <div class="card mb-8">
+      <h2 class="text-purple-300 font-semibold mb-2">✅ Résultats</h2>
+      <p class="text-gray-300">
+        Le formulaire est fonctionnel pour un utilisateur réel et bloque efficacement
+        les tentatives automatisées, sans impact négatif sur l’expérience utilisateur.
+      </p>
+    </div>
+
+    <div class="card mb-10">
+      <h2 class="text-purple-300 font-semibold mb-2">🎓 Compétences BTS mobilisées</h2>
+      <ul class="list-disc list-inside text-gray-400">
+        <li>Sécurisation des services</li>
+        <li>Analyse des risques</li>
+        <li>Tests et validation</li>
+        <li>Cybersécurité applicative</li>
+      </ul>
+    </div>
+
+    <!-- ===== PREUVES ===== -->
+    <div class="card mt-10">
+      <h2 class="text-purple-300 font-semibold mb-4">
+        🖼️ Preuves et captures – Tests anti-spam
+      </h2>
+
+      <p class="text-gray-300 mb-6">
+        Afin de prouver le bon fonctionnement du système anti-spam, des tests ont été
+        réalisés manuellement à l’aide de l’inspecteur du navigateur (F12).
+        Les captures ci-dessous montrent les différentes étapes du test.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <div class="card">
+          <img src="screens/spam-test-1-honeypot.png" alt="Champ honeypot invisible" class="proof-img mb-3 w-full">
+          <p class="text-sm text-gray-400">
+            Présence du champ honeypot invisible dans le code HTML,
+            non visible pour l’utilisateur.
+          </p>
+        </div>
+
+        <div class="card">
+          <img src="screens/spam-test-2-bot.png" alt="Simulation bot via inspecteur" class="proof-img mb-3 w-full">
+          <p class="text-sm text-gray-400">
+            Simulation d’un bot en remplissant manuellement le champ honeypot
+            via l’inspecteur du navigateur.
+          </p>
+        </div>
+
+        <div class="card">
+          <img src="screens/spam-test-3-blocked.png" alt="Blocage du message spam" class="proof-img mb-3 w-full">
+          <p class="text-sm text-gray-400">
+            Blocage automatique de l’envoi avec affichage du message
+            indiquant une tentative de spam.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="mt-6">
+        <p class="text-gray-300 font-semibold">
+          Conclusion : le système anti-spam fonctionne correctement et bloque les tentatives automatisées
+          tout en laissant passer les envois légitimes.
+        </p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="py-10 text-center text-sm text-gray-500">
+    © 2025 — Fiche projet BTS (Cybersécurité)
+  </footer>
+
+  <!-- ===== SCRIPT THEME ===== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const themeToggle = document.getElementById('themeToggle');
+      const themeIcon = document.getElementById('themeIcon');
+      const body = document.body;
+
+      if (!themeToggle || !themeIcon) return;
+
+      // 🔁 Synchronisé avec le portfolio (clé "theme")
+      const savedTheme = localStorage.getItem('theme');
+
+      if (savedTheme === 'light') {
+        body.classList.add('light');
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+      } else {
+        body.classList.remove('light');
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+        localStorage.setItem('theme', 'dark');
+      }
+
+      themeToggle.addEventListener('click', () => {
+        body.classList.toggle('light');
+
+        const isLight = body.classList.contains('light');
+        themeIcon.classList.toggle('fa-sun', isLight);
+        themeIcon.classList.toggle('fa-moon', !isLight);
+
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+      });
+    });
+  </script>
+
+</body>
+</html>

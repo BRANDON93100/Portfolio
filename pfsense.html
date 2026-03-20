@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projet BTS – Sécurité pfSense</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: #0a0219;
+      color: #f3e8ff;
+      overflow-x: hidden;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(168, 85, 247, 0.22);
+      border-radius: 20px;
+      padding: 2rem;
+      transition: all .25s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 22px rgba(168, 85, 247, 0.18);
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #c084fc;
+      margin-bottom: 1.5rem;
+      line-height: 1.15;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      color: #e9d5ff;
+      padding: .35rem .8rem;
+      border-radius: 9999px;
+      font-size: .85rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #7e22ce, #a855f7);
+      color: #fff;
+      width: 44px;
+      height: 44px;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      cursor: pointer;
+      transition: all .25s ease;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      background: rgba(18, 0, 33, 0.80);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(168, 85, 247, 0.25);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      font-weight: 800;
+      color: #c084fc;
+      text-decoration: none;
+    }
+
+    /* MODE JOUR */
+    body.light { background: #f9fafb; color: #111827; }
+    body.light .topbar { background: rgba(255,255,255,0.90); border-bottom: 1px solid #e5e7eb; }
+    body.light .card { background: #f5f3ff; border: 1px solid rgba(109, 40, 217, 0.22); }
+    body.light .section-title { color: #6d28d9; }
+    body.light .badge { background: rgba(109, 40, 217, 0.10); border-color: rgba(109, 40, 217, 0.25); color: #4c1d95; }
+    body.light .text-gray-300, body.light .text-gray-400, body.light p, body.light li, body.light strong, body.light span, body.light div { color: #111827 !important; }
+    body.light h2 { color: #6d28d9 !important; }
+  </style>
+</head>
+
+<body>
+
+<div class="topbar">
+  <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <span class="badge">
+        <i class="fa-solid fa-shield-halved"></i>
+        Cybersécurité
+      </span>
+      <span class="text-sm text-gray-300">
+        Projet BTS – Brandon Betancourt
+      </span>
+    </div>
+    <button id="themeToggle" class="btn-primary">
+      <i id="themeIcon" class="fa-solid fa-moon"></i>
+    </button>
+  </div>
+</div>
+
+<main class="px-6 py-12 max-w-5xl mx-auto">
+
+  <a href="index.html#projet-pfsense" class="back-link mb-6 inline-flex">
+  <i class="fa-solid fa-arrow-left"></i>
+  Retour aux projets
+</a>
+
+  <h1 class="section-title">
+    🛡️ Sécuriser le réseau avec pfSense
+  </h1>
+
+  <div class="card mb-8">
+    <h2 class="text-purple-300 font-semibold mb-2">📌 C'est quoi ce projet ?</h2>
+    <p class="text-gray-300">
+      Pour protéger une entreprise des attaques extérieures, il faut un "gardien" à l'entrée du réseau. J'ai installé et configuré <strong>pfSense</strong>, un pare-feu professionnel, pour filtrer tout ce qui rentre et sort.
+    </p>
+  </div>
+
+  <div class="card mb-8">
+    <h2 class="text-purple-300 font-semibold mb-2">🎯 Mes missions principales</h2>
+    <ul class="list-disc list-inside text-gray-400 space-y-3">
+      <li><strong>Filtrage (Pare-feu) :</strong> Bloquer les accès dangereux et n'autoriser que ce qui est nécessaire (Web, Mail, etc.).</li>
+      <li><strong>Découpage du réseau (VLAN) :</strong> Séparer les ordinateurs des employés des serveurs importants pour que, si l'un est attaqué, l'autre reste protégé.</li>
+      <li><strong>Surveillance (IDS) :</strong> Installer un système qui prévient l'administrateur s'il détecte un comportement suspect sur le réseau.</li>
+    </ul>
+  </div>
+
+  <div class="card mb-8">
+    <h2 class="text-purple-300 font-semibold mb-2">🛠️ Solutions techniques utilisées</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="p-4 bg-white/5 rounded-xl border border-purple-500/20">
+        <strong class="text-purple-300">Règles de filtrage</strong>
+        <p class="text-sm text-gray-400">J'ai créé des règles précises pour décider qui a le droit d'aller sur Internet ou d'accéder aux serveurs.</p>
+      </div>
+      <div class="p-4 bg-white/5 rounded-xl border border-purple-500/20">
+        <strong class="text-purple-300">VPN & Accès distant</strong>
+        <p class="text-sm text-gray-400">Configuration d'un tunnel sécurisé pour permettre de travailler à distance sans risque.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-8">
+    <h2 class="text-purple-300 font-semibold mb-2">✅ Ce que j'ai appris</h2>
+    <p class="text-gray-300">
+      Ce projet m'a permis de comprendre comment on protège concrètement une infrastructure. J'ai appris à anticiper les menaces et à organiser un réseau de manière logique et sécurisée.
+    </p>
+  </div>
+
+  <div class="card mt-10">
+    <h2 class="text-purple-300 font-semibold mb-4">🖼️ Aperçu de la configuration</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="card text-center">
+        <div class="mb-3 text-4xl text-purple-400"><i class="fa-solid fa-list-check"></i></div>
+        <p class="text-sm text-gray-400 font-semibold">Règles Firewall</p>
+        <p class="text-xs text-gray-500">Exemple de blocage de ports inutilisés.</p>
+      </div>
+      <div class="card text-center">
+        <div class="mb-3 text-4xl text-purple-400"><i class="fa-solid fa-diagram-project"></i></div>
+        <p class="text-sm text-gray-400 font-semibold">Schéma VLAN</p>
+        <p class="text-xs text-gray-500">Isolation des services par groupes.</p>
+      </div>
+      <div class="card text-center">
+        <div class="mb-3 text-4xl text-purple-400"><i class="fa-solid fa-user-shield"></i></div>
+        <p class="text-sm text-gray-400 font-semibold">Snort / Alertes</p>
+        <p class="text-xs text-gray-500">Détection d'intrusions en temps réel.</p>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="py-10 text-center text-sm text-gray-500">
+  © 2026 — Brandon Betancourt | Spécialisation Cybersécurité (BTS SIO)
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const body = document.body;
+    const savedTheme = localStorage.getItem('theme');
+
+    if (savedTheme === 'light') {
+      body.classList.add('light');
+      themeIcon.classList.replace('fa-moon', 'fa-sun');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('light');
+      const isLight = body.classList.contains('light');
+      themeIcon.classList.toggle('fa-sun', isLight);
+      themeIcon.classList.toggle('fa-moon', !isLight);
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+  });
+</script>
+
+</body>
+</html>
