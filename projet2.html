@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projet BTS – Réorganisation des Bureaux</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: #0a0219;
+      color: #f3e8ff;
+      overflow-x: hidden;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(168, 85, 247, 0.22);
+      border-radius: 20px;
+      padding: 2rem;
+      transition: all .25s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 22px rgba(168, 85, 247, 0.18);
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #c084fc;
+      margin-bottom: 1.25rem;
+      line-height: 1.15;
+    }
+
+    .mini-title {
+      color: #d8b4fe;
+      font-weight: 700;
+      margin-bottom: .5rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      color: #e9d5ff;
+      padding: .35rem .8rem;
+      border-radius: 9999px;
+      font-size: .85rem;
+      font-weight: 700;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #7e22ce, #a855f7);
+      color: #fff;
+      padding: 0.55rem 1.2rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      transition: all 0.25s ease;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      white-space: nowrap;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(168, 85, 247, 0.45);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      color: #c084fc;
+      font-weight: 700;
+      text-decoration: none;
+      margin-bottom: 1.25rem;
+    }
+    .back-link:hover { text-decoration: underline; }
+
+    .proof-img {
+      border-radius: 14px;
+      border: 1px solid rgba(168, 85, 247, 0.25);
+      box-shadow: 0 10px 18px rgba(0,0,0,.25);
+    }
+
+    body.light { background: #f9fafb; color: #111827; }
+    body.light .card { background: #f5f3ff; border: 1px solid rgba(109, 40, 217, 0.25); }
+    body.light .section-title { color: #6d28d9; }
+    body.light .mini-title { color: #4c1d95; }
+    body.light .badge { background: rgba(109, 40, 217, 0.10); border-color: rgba(109, 40, 217, 0.25); color: #4c1d95; }
+    body.light .back-link { color: #111827; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(18, 0, 33, 0.78);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(168, 85, 247, 0.25);
+    }
+    body.light .topbar { background: rgba(255,255,255,0.85); border-bottom: 1px solid #e5e7eb; }
+    
+    body.light p, body.light li, body.light span, body.light div { color: #111827; }
+    body.light .text-gray-300, body.light .text-gray-400 { color: #111827 !important; }
+  </style>
+</head>
+
+<body>
+
+  <div class="topbar">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <span class="badge"><i class="fa-solid fa-phone-volume"></i> Installation & Téléphonie</span>
+        <span class="text-sm text-gray-300 hidden sm:inline">Projet BTS – Réorganisation des bureaux</span>
+      </div>
+      <button id="themeToggle" class="btn-primary w-11 h-11 p-0 rounded-full">
+        <i id="themeIcon" class="fa-solid fa-moon"></i>
+      </button>
+    </div>
+  </div>
+
+  <main class="px-6 py-12 max-w-5xl mx-auto">
+
+    <a href="index.html#projet-bureau" class="back-link">
+      <i class="fa-solid fa-arrow-left"></i> Retour au portfolio
+    </a>
+
+    <h1 class="section-title">
+      📞 Réorganisation des bureaux et des lignes téléphoniques
+    </h1>
+
+    <div class="card mb-8">
+      <div class="flex flex-wrap gap-2 mb-4">
+        <span class="badge"><i class="fa-solid fa-network-wired"></i> Branchements Réseau</span>
+        <span class="badge"><i class="fa-solid fa-tty"></i> Téléphones</span>
+        <span class="badge"><i class="fa-solid fa-microchip"></i> Matériel</span>
+      </div>
+      <p class="text-gray-300">
+        Ce projet consistait à réorganiser tout le matériel informatique d'un grand bureau. 
+        J'ai dû déplacer les ordinateurs et les téléphones, refaire les branchements de chaque prise et régler le système de téléphonie pour que tout le monde puisse retravailler normalement.
+      </p>
+    </div>
+
+    <div class="card mb-8">
+      <h2 class="mini-title">📌 C'est quoi ce projet ?</h2>
+      <p class="text-gray-300">
+        L'entreprise a changé la disposition de ses bureaux. J'ai dû déplacer 15 postes de travail. Le plus important était que chaque employé garde son numéro de téléphone et sa connexion internet une fois arrivé à sa nouvelle place.
+      </p>
+    </div>
+
+    <div class="card mb-8">
+      <h2 class="mini-title">🎯 Mes objectifs</h2>
+      <ul class="list-disc list-inside text-gray-300 space-y-1">
+        <li>S'assurer que l'internet fonctionne sur chaque nouveau bureau.</li>
+        <li>Déplacer et brancher les téléphones pour qu'ils marchent tout de suite.</li>
+        <li>Ranger proprement les câbles dans l'armoire informatique.</li>
+        <li>Faire en sorte que chaque employé retrouve son propre numéro de téléphone.</li>
+      </ul>
+    </div>
+
+    <div class="card mb-8">
+      <h2 class="mini-title">🧩 Ce que j'ai fait concrètement</h2>
+      <ol class="list-decimal list-inside text-gray-300 space-y-2">
+        <li>J'ai d'abord noté où allait chaque personne et quel était son numéro.</li>
+        <li>J'ai tout débranché et transporté le matériel (PC, écrans, téléphones).</li>
+        <li><strong>Les branchements :</strong> Je suis allé dans le local technique pour relier les prises des bureaux aux bonnes machines.</li>
+        <li>J'ai réglé le système pour que chaque téléphone reconnaisse le bon utilisateur.</li>
+        <li>J'ai passé des appels de test pour vérifier que tout fonctionnait bien.</li>
+      </ol>
+    </div>
+
+    <div class="card mb-10">
+      <h2 class="mini-title">🎓 Ce que j'ai appris</h2>
+      <ul class="list-disc list-inside text-gray-300 space-y-1">
+        <li><strong>Installer du matériel</strong> : Savoir mettre en place un poste de travail complet.</li>
+        <li><strong>Gérer le réseau</strong> : Savoir faire des branchements propres et organisés.</li>
+        <li><strong>Gérer la téléphonie</strong> : Configurer les téléphones pour qu'ils soient opérationnels.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2 class="mini-title">🖼️ Preuves du travail</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+        <div>
+          <div class="proof-img w-full h-48 bg-gray-900 flex items-center justify-center text-gray-500 mb-3">
+             <i class="fa-solid fa-diagram-project text-4xl"></i>
+          </div>
+          <p class="text-sm text-gray-300">Schéma des branchements après mon passage.</p>
+        </div>
+        <div>
+          <div class="proof-img w-full h-48 bg-gray-900 flex items-center justify-center text-gray-500 mb-3">
+             <i class="fa-solid fa-gears text-4xl"></i>
+          </div>
+          <p class="text-sm text-gray-300">Écran de réglage des numéros de téléphone.</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="py-8 text-center text-sm text-gray-500">
+    © 2026 — Brandon Betancourt | Réorganisation des bureaux
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const themeToggle = document.getElementById('themeToggle');
+      const themeIcon = document.getElementById('themeIcon');
+      const body = document.body;
+
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        body.classList.add('light');
+        themeIcon.classList.replace('fa-moon', 'fa-sun');
+      }
+
+      themeToggle.addEventListener('click', () => {
+        body.classList.toggle('light');
+        const isLight = body.classList.contains('light');
+        themeIcon.classList.toggle('fa-sun', isLight);
+        themeIcon.classList.toggle('fa-moon', !isLight);
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+      });
+    });
+  </script>
+
+</body>
+</html>
