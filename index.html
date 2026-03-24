@@ -282,6 +282,115 @@ body.light .veille-tag {
   }
 }
 
+/* Ajouts spécifiques pour les pastilles en mode Light */
+  body.light .badge {
+    background: #ede9fe !important; /* Violet très clair solide */
+    color: #5b21b6 !important; /* Violet foncé pour le texte */
+    border-color: #ddd6fe !important;
+  }
+
+  body.light .timeline-icon {
+    background: #ffffff !important;
+    border-color: #8b5cf6 !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+  }
+  
+  /* Style de base pour bien centrer les icônes */
+  .timeline-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+  }
+
+/* --- Ajustements pour la Veille en mode Light --- */
+body.light #veille .card {
+  background-color: #ffffff !important;
+  border-color: #e5e7eb !important; /* Gris clair */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+}
+
+body.light #veille .text-gray-400, 
+body.light #veille .text-gray-300,
+body.light #veille .text-gray-200 {
+  color: #374151 !important; /* Gris très foncé (presque noir) */
+}
+
+body.light #veille .text-white {
+  color: #111827 !important; /* Noir pur */
+}
+
+body.light #veille .bg-[#0a0219] {
+  background-color: #f9fafb !important; /* Fond très clair */
+  border-color: #ddd6fe !important;
+}
+
+body.light #veille .border-white\/5,
+body.light #veille .border-white\/10 {
+  border-color: #e5e7eb !important;
+}
+
+body.light #veille .bg-purple-500\/5 {
+  background-color: #f5f3ff !important; /* Violet extrêmement pâle */
+}
+
+/* Style des nouveaux blocs de compétences techniques */
+.tech-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  border-radius: 24px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.tech-icon-wrapper {
+  width: 3.5rem;
+  height: 3.5rem;
+  background: rgba(168, 85, 247, 0.15);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  color: #c084fc;
+}
+
+.tech-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tech-list li {
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: #d1d5db; /* gris clair dark mode */
+}
+
+/* --- Ajustements Compétences Techniques en mode Light --- */
+body.light .tech-card {
+  background: #ffffff !important;
+  border-color: #ddd6fe !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+body.light .tech-icon-wrapper {
+  background: #f5f3ff !important;
+  color: #7e22ce !important; /* Violet plus foncé */
+}
+
+body.light .tech-card h3 {
+  color: #6d28d9 !important; /* Titre bien présent */
+}
+
+body.light .tech-list li {
+  color: #1f2937 !important; /* Texte quasi noir pour une lecture parfaite */
+}
+
 
 </style>
 
@@ -378,7 +487,7 @@ Administration systèmes, gestion des réseaux et cybersécurité. Découvrez me
 </div>
 <div class="flex justify-center">
 <div class="flex flex-col items-center bg-purple-900/20 p-4 rounded-2xl shadow-lg max-w-xs">
-<img class="w-48 h-48 object-cover rounded-full border-4 border-purple-500 shadow-xl mb-3" src="PHOTO-2024-09-27-22-18-55.jp"="Brandon Betancourt">
+<img class="w-48 h-48 object-cover rounded-full border-4 border-purple-500 shadow-xl mb-3" src="PHOTO-2024-09-27-22-18-55.jpg"="Brandon Betancourt">
 <h1 class="text-xl font-semibold text-purple-400 mb-1 text-center">Brandon Betancourt</h1>
 <p class="text-gray-300 mb-3 text-center text-sm">Technicien Systèmes, Réseaux et Cybersécurité</p>
 <div class="flex flex-col sm:flex-row gap-2">
@@ -394,149 +503,186 @@ Administration systèmes, gestion des réseaux et cybersécurité. Découvrez me
 </div>
 </section>
 
-<!-- ===== BTS SIO option SISR ===== -->
+<section id="experience" class="py-24 px-6 max-w-5xl mx-auto">
+  <div class="text-center mb-16">
+    <h2 class="section-title">🎓 Mon Parcours</h2>
+    <p class="text-gray-400 mt-2">De mes premiers diplômes à mon alternance actuelle</p>
+  </div>
+  
+  <div class="space-y-16 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-purple-500/10 before:via-purple-500/50 before:to-purple-500">
+    
+    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+      <div class="timeline-icon w-10 h-10 rounded-full border border-purple-500/30 bg-[#0a0219] text-purple-300 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 transition-all group-hover:scale-110 shadow-sm">
+        <i class="fa-solid fa-certificate"></i>
+      </div>
+      <div class="w-[calc(100%-4.5rem)] md:w-[42%] card p-5 md:order-1 opacity-80 hover:opacity-100 transition-opacity ml-10 md:ml-0 md:group-even:ml-12 md:group-odd:mr-12">
+        <span class="badge mb-3">2021</span>
+        <h3 class="text-blue-400 font-bold text-lg">Brevet des Collèges</h3>
+        <p class="text-purple-300/80 text-sm font-medium"><i class="fa-solid fa-location-dot mr-1 text-xs"></i> Marcelin Berthelot, Montreuil</p>
+      </div>
+    </div>
+
+    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+      <div class="timeline-icon w-10 h-10 rounded-full border border-purple-500/30 bg-[#0a0219] text-purple-300 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 transition-all group-hover:scale-110 shadow-sm">
+        <i class="fa-solid fa-school"></i>
+      </div>
+      <div class="w-[calc(100%-4.5rem)] md:w-[42%] card p-5 md:order-1 ml-10 md:ml-0 md:group-even:ml-12 md:group-odd:mr-12">
+        <span class="badge mb-3">2024</span>
+        <h3 class="text-blue-400 font-bold text-lg">Baccalauréat Pro SN</h3>
+        <p class="text-purple-300/80 text-sm font-medium mb-3"><i class="fa-solid fa-location-dot mr-1 text-xs"></i> Lycée Condorcet, Montreuil</p>
+        <span class="text-[10px] bg-blue-500/10 text-blue-400 px-2 py-1 rounded border border-blue-500/20 font-bold tracking-widest uppercase">Systèmes Numériques</span>
+      </div>
+    </div>
+
+    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+      <div class="timeline-icon w-10 h-10 rounded-full border border-purple-500 bg-[#0a0219] text-purple-400 shadow-[0_0_10px_rgba(168,85,247,0.3)] shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+        <i class="fa-solid fa-briefcase"></i>
+      </div>
+      <div class="w-[calc(100%-4.5rem)] md:w-[42%] card p-5 md:order-1 border-purple-500/40 ml-10 md:ml-0 md:group-even:ml-12 md:group-odd:mr-12">
+        <span class="badge mb-3 bg-purple-500/20 border-purple-500/40">Juillet 2024 – Présent</span>
+        <h3 class="text-blue-400 font-bold text-lg">Alternance – AirflexPublicité</h3>
+        <p class="text-purple-300/80 text-sm font-medium italic">Technicien Systèmes & Réseaux</p>
+      </div>
+    </div>
+
+    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+      <div class="timeline-icon w-14 h-14 rounded-full border-2 border-purple-400 bg-[#0a0219] text-purple-400 shadow-[0_0_20px_rgba(168,85,247,0.6)] shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 transition-transform group-hover:scale-105">
+        <i class="fa-solid fa-graduation-cap text-xl"></i>
+      </div>
+      <div class="w-[calc(100%-5rem)] md:w-[42%] card p-6 md:order-1 border-purple-400 shadow-[0_0_25px_rgba(168,85,247,0.15)] relative overflow-hidden ml-12 md:ml-0 md:group-even:ml-16 md:group-odd:mr-16">
+        <div class="absolute top-0 right-0 bg-purple-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase">Objectif 2026</div>
+        <span class="badge mb-3 bg-purple-600 text-white border-none shadow-md">En cours</span>
+        <h3 class="text-blue-400 font-bold text-xl">BTS SIO (Option SISR)</h3>
+        <p class="text-gray-300 text-sm mt-3 leading-relaxed">
+          Spécialisation en infrastructure et cybersécurité. Préparation aux métiers d'administrateur réseau.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <section class="py-24 px-6 max-w-5xl mx-auto">
-<h2 class="section-title">BTS SIO option SISR</h2>
-<p class="text-gray-300 mb-4">
-Le <span class="text-purple-400 font-semibold">BTS Services Informatiques aux Organisations (SIO)</span> est un diplôme bac+2 qui forme des spécialistes de l'informatique. L'option <span class="text-purple-400 font-semibold">SISR</span> (Solutions d'Infrastructure, Systèmes et Réseaux) prépare aux métiers liés à :
-</p>
-<ul class="list-disc list-inside text-gray-400 mb-4">
-<li>L'administration et la sécurisation des réseaux informatiques</li>
-<li>L'installation et la gestion des serveurs</li>
-<li>La supervision et la maintenance d'infrastructures</li>
-<li>Le support technique aux utilisateurs</li>
-</ul>
-<p class="text-gray-300">
-Les diplômés peuvent exercer comme <em>technicien systèmes et réseaux</em>, <em>administrateur</em>, <em>gestionnaire de parc</em> ou encore <em>consultant en cybersécurité junior</em>. Cette formation est idéale pour ceux qui souhaitent construire, maintenir et sécuriser des infrastructures informatiques modernes.
-</p>
+  <h2 class="section-title">BTS SIO : SISR & SLAM</h2>
+  <p class="text-gray-300 mb-6">
+    Le <span class="text-purple-400 font-semibold">BTS Services Informatiques aux Organisations (SIO)</span> est un diplôme bac+2 formant les experts de l'informatique de demain à travers deux spécialisations distinctes :
+  </p>
+
+  <div class="grid md:grid-cols-2 gap-8">
+    <div>
+      <h3 class="text-xl font-bold text-white mb-3">Option SISR</h3>
+      <p class="text-gray-400 mb-3 text-sm"><em>Solutions d'Infrastructure, Systèmes et Réseaux</em></p>
+      <ul class="list-disc list-inside text-gray-400 space-y-1">
+        <li>Administration et sécurité réseaux</li>
+        <li>Gestion et installation de serveurs</li>
+        <li>Maintenance d'infrastructures</li>
+        <li>Support technique aux utilisateurs</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="text-xl font-bold text-white mb-3">Option SLAM</h3>
+      <p class="text-gray-400 mb-3 text-sm"><em>Solutions Logicielles et Applications Métiers</em></p>
+      <ul class="list-disc list-inside text-gray-400 space-y-1">
+        <li>Conception et développement d'applications</li>
+        <li>Maintenance de programmes informatiques</li>
+        <li>Gestion de bases de données</li>
+        <li>Déploiement de solutions logicielles</li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="text-gray-300 mt-8">
+    Que ce soit en devenant <span class="italic">administrateur systèmes</span> (SISR) ou <span class="italic">développeur d'applications</span> (SLAM), cette formation est la voie idéale pour construire et sécuriser l'avenir numérique des entreprises.
+  </p>
 </section>
 
-<!-- ===== Compétences ===== -->
 <section id="skills" class="py-24 px-6 max-w-5xl mx-auto">
-<h2 class="section-title">Compétences</h2>
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+  <h2 class="section-title">Compétences</h2>
 
-<a href="Administration-Serveur.html" class="block">
-  <div class="card text-center hover:cursor-pointer">
-    <i class="fas fa-server text-5xl text-purple-400 mb-3"></i>
-    <p class="font-semibold">Administration Serveurs</p>
-      <p class="text-gray-400 text-sm mt-2">
-    Projet : Dépannage WordPress
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-20"> <a href="Administration-Serveur.html" class="block group">
+      <div class="card text-center h-full hover:border-purple-500/50 transition-all">
+        <i class="fas fa-server text-5xl text-purple-400 mb-4 group-hover:scale-110 transition-transform"></i>
+        <p class="font-bold">Administration Serveurs</p>
+        <p class="text-gray-400 text-xs mt-3">Projet : Dépannage WordPress</p>
+      </div>
+    </a>
+
+    <div class="card text-center h-full">
+      <i class="fas fa-network-wired text-5xl text-purple-400 mb-4"></i>
+      <p class="font-bold">Réseaux</p>
+      <p class="text-gray-500 text-xs mt-3 italic">Expertise Infrastructure</p>
+    </div>
+
+    <a href="Cybersécurité.html" class="block group">
+      <div class="card text-center h-full hover:border-purple-500/50 transition-all">
+        <i class="fas fa-shield-alt text-5xl text-purple-400 mb-4 group-hover:scale-110 transition-transform"></i>
+        <p class="font-bold">Cybersécurité</p>
+        <p class="text-gray-400 text-xs mt-3">Projet : Sécurisation formulaire</p>
+      </div>
+    </a>
+
+    <a href="Base-De-Données.html" class="block group">
+      <div class="card text-center h-full hover:border-purple-500/50 transition-all">
+        <i class="fas fa-database text-5xl text-purple-400 mb-4 group-hover:scale-110 transition-transform"></i>
+        <p class="font-bold">Base De Données</p>
+        <p class="text-gray-400 text-xs mt-3">Projet : Gestion MySQL</p>
+      </div>
+    </a>
+
   </div>
-</a>
 
-<div class="card text-center">
-<i class="fas fa-network-wired text-5xl text-purple-400 mb-3"></i>
-<p class="font-semibold">Réseaux</p>
-</div>
+  <div class="border-t border-purple-500/10 mb-16"></div>
 
-<a href="Cybersécurité.html" class="card text-center block">
-  <i class="fas fa-shield-alt text-5xl text-purple-400 mb-3"></i>
-  <p class="font-semibold">Cybersécurité</p>
-  <p class="text-gray-400 text-sm mt-2">
-    Projet : sécurisation d’un formulaire
-  </p>
-</a>
+<div class="mt-20 px-4">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto"> 
+    
+    <div class="tech-card reveal">
+      <div class="tech-icon-wrapper">
+        <i class="fa-solid fa-network-wired text-xl"></i>
+      </div>
+      <h3 class="text-purple-400 font-bold text-xl mb-6">Réseaux</h3>
+      <ul class="tech-list">
+        <li>DHCP</li>
+        <li>DNS</li>
+        <li>VLAN</li>
+        <li>TCP/IP</li>
+        <li>HSRP</li>
+      </ul>
+    </div>
 
-<a href="Base-De-Données.html" class="card text-center block">
-  <i class="fas fa-database text-5xl text-purple-400 mb-3"></i>
-  <p class="font-semibold">Base De Données</p>
-  <p class="text-gray-400 text-sm mt-2">
-    Projet : Gestion & sécurisation de bases MySQL
-  </p>
-</a>
+    <div class="tech-card reveal">
+      <div class="tech-icon-wrapper">
+        <i class="fa-solid fa-server text-xl"></i>
+      </div>
+      <h3 class="text-purple-400 font-bold text-xl mb-6">Systèmes</h3>
+      <ul class="tech-list">
+        <li>Windows Server</li>
+        <li>Debian</li>
+        <li>Active Directory</li>
+        <li>GLPI</li>
+        <li>Linux</li>
+      </ul>
+    </div>
 
+    <div class="tech-card reveal">
+      <div class="tech-icon-wrapper">
+        <i class="fa-solid fa-shield-halved text-xl"></i>
+      </div>
+      <h3 class="text-purple-400 font-bold text-xl mb-6">Sécurité</h3>
+      <ul class="tech-list">
+        <li>VPN</li>
+        <li>Firewall</li>
+        <li>Segmentation</li>
+        <li>ACL</li>
+        <li>Kali Linux</li>
+      </ul>
+    </div>
+    
+  </div>
 </div>
 </section>
 
-<!-- ===== Outils maîtrisés ===== -->
-<section id="tools" class="py-24 px-6 max-w-6xl mx-auto">
-  <h2 class="section-title">Outils maîtrisés</h2>
-
-  <p class="text-gray-400 text-center max-w-3xl mx-auto mb-12">
-    Outils et technologies utilisés durant ma formation, mes projets, mes stages et mon alternance.
-  </p>
-
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-
-    <!-- Systèmes -->
-    <div class="card text-center">
-      <i class="fa-brands fa-windows text-5xl text-purple-400 mb-3"></i>
-      <h3 class="font-semibold mb-2">Windows / Windows Server</h3>
-      <p class="text-gray-400 text-sm mb-3">
-        Installation, administration, comptes utilisateurs, GPO, maintenance.
-      </p>
-      <span class="skill-badge">Autonome</span>
-    </div>
-
-    <div class="card text-center">
-      <i class="fa-brands fa-linux text-5xl text-purple-400 mb-3"></i>
-      <h3 class="font-semibold mb-2">Linux</h3>
-      <p class="text-gray-400 text-sm mb-3">
-        Commandes de base, services, permissions, configuration réseau.
-      </p>
-      <span class="skill-badge">En progression</span>
-    </div>
-
-    <!-- Réseaux -->
-    <div class="card text-center">
-      <i class="fa-solid fa-network-wired text-5xl text-purple-400 mb-3"></i>
-      <h3 class="font-semibold mb-2">Réseaux / VLAN</h3>
-      <p class="text-gray-400 text-sm mb-3">
-        Câblage, baies de brassage, segmentation réseau, notions VLAN.
-      </p>
-      <span class="skill-badge">Autonome</span>
-    </div>
-
-    <div class="card text-center">
-      <i class="fa-solid fa-lock text-5xl text-purple-400 mb-3"></i>
-      <h3 class="font-semibold mb-2">VPN</h3>
-      <p class="text-gray-400 text-sm mb-3">
-        Accès distant sécurisé, principes IPsec / SSL, bonnes pratiques.
-      </p>
-      <span class="skill-badge">Notions solides</span>
-    </div>
-
-    <!-- Outils pro -->
-    <div class="card text-center">
-      <i class="fa-solid fa-ticket text-5xl text-purple-400 mb-3"></i>
-      <h3 class="font-semibold mb-2">GLPI</h3>
-      <p class="text-gray-400 text-sm mb-3">
-        Gestion des tickets, suivi incidents, inventaire du parc.
-      </p>
-      <span class="skill-badge">Autonome</span>
-    </div>
-
-    <div class="card text-center">
-      <i class="fa-solid fa-file-excel text-5xl text-purple-400 mb-3"></i>
-      <h3 class="font-semibold mb-2">Excel</h3>
-      <p class="text-gray-400 text-sm mb-3">
-        Suivi des commandes, tableaux, organisation de données.
-      </p>
-      <span class="skill-badge">Autonome</span>
-    </div>
-
-    <!-- Dev / outils -->
-    <div class="card text-center">
-      <i class="fa-brands fa-github text-5xl text-purple-400 mb-3"></i>
-      <h3 class="font-semibold mb-2">Git / GitHub</h3>
-      <p class="text-gray-400 text-sm mb-3">
-        Dépôts, versioning, projets personnels (portfolio).
-      </p>
-      <span class="skill-badge">En progression</span>
-    </div>
-
-    <div class="card text-center">
-      <i class="fa-solid fa-globe text-5xl text-purple-400 mb-3"></i>
-      <h3 class="font-semibold mb-2">Web / CMS</h3>
-      <p class="text-gray-400 text-sm mb-3">
-        Mise à jour de sites, contenu, maintenance (Airflex).
-      </p>
-      <span class="skill-badge">Autonome</span>
-    </div>
-
-  </div>
-</section>
 
 <section id="certifications" class="py-24 px-6 max-w-6xl mx-auto">
   <h2 class="section-title text-white">Certifications</h2>
@@ -651,9 +797,60 @@ Stage réalisé au sein de la <strong>Direction des Systèmes d'Information (DSI
     </a>
     <h3 class="font-semibold text-lg">🎨 Alternance – <span class="text-purple-400">AirflexPublicité</span></h3>
   </div>
-  <p class="text-gray-400 mb-4">
-    Alternance chez <strong>AirflexPublicité</strong>, incluant le <strong>réaménagement des bureaux</strong>, la maintenance des <strong>lignes téléphoniques</strong> et des <strong>baies de brassage</strong>, ainsi que le suivi des <strong>postes informatiques</strong> en cas de problèmes de réseau. Gestion et mise à jour de sites clients, traitement des commandes clients dans Excel, et création d'outils interactifs pour McDonald's et Subway.
-  </p>
+<div class="mb-8 p-6 bg-purple-500/5 dark:bg-purple-500/10 rounded-xl border border-purple-500/20">
+  <div class="grid md:grid-cols-3 gap-8 items-center">
+    
+    <div class="md:col-span-2">
+      <h4 class="text-purple-700 dark:text-purple-300 font-bold mb-4 flex items-center gap-2 text-sm uppercase tracking-wider">
+        <i class="fa-solid fa-building"></i> Présentation de l'entreprise
+      </h4>
+      <p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed italic border-l-2 border-purple-500/30 pl-4">
+        Fondée en 1992 et basée au 26 rue des Petits Champs à Paris (2e), <strong>Airflex Publicité</strong> est une agence spécialisée dans la <strong>communication de proximité</strong>. 
+        Son objectif est d'accompagner ses clients locaux et nationaux dans le développement de leur notoriété et de leur chiffre d'affaires. 
+        L'agence maîtrise l'ensemble des outils marketing pour conseiller et guider les entreprises dans leurs prises de décisions stratégiques afin d'optimiser leur impact publicitaire.
+      </p>
+    </div>
+
+    <div class="flex flex-col items-center border-t md:border-t-0 md:border-l border-purple-500/10 pt-6 md:pt-0 md:pl-6">
+      <span class="text-[10px] text-purple-400/60 uppercase tracking-[0.2em] mb-6 font-bold">Structure interne</span>
+      
+      <div class="flex flex-col items-center gap-1">
+        <div class="flex flex-col items-center group">
+          <div class="w-8 h-8 rounded-full bg-red-400/10 border border-red-400/50 flex items-center justify-center mb-1 shadow-sm">
+            <i class="fa-solid fa-user text-red-400 text-[10px]"></i>
+          </div>
+          <div class="bg-white/5 border border-white/10 px-4 py-1 rounded-md min-w-[110px] text-center">
+            <span class="text-white text-[11px] font-semibold">Patron</span>
+          </div>
+        </div>
+
+        <div class="w-px h-5 bg-red-400/30"></div>
+
+        <div class="flex flex-col items-center">
+          <div class="w-8 h-8 rounded-full bg-green-400/10 border border-green-400/50 flex items-center justify-center mb-1 shadow-sm">
+            <i class="fa-solid fa-user-tie text-green-400 text-[10px]"></i>
+          </div>
+          <div class="bg-white/5 border border-white/10 px-4 py-1 rounded-md min-w-[110px] text-center">
+            <span class="text-white text-[11px] font-semibold">Tuteur</span>
+          </div>
+        </div>
+
+        <div class="w-px h-5 bg-green-400/30"></div>
+
+        <div class="flex flex-col items-center">
+          <div class="w-8 h-8 rounded-full bg-cyan-400/10 border border-cyan-400/50 flex items-center justify-center mb-1 shadow-[0_0_10px_rgba(34,211,238,0.2)]">
+            <i class="fa-solid fa-user-graduate text-cyan-400 text-[10px]"></i>
+          </div>
+          <div class="bg-cyan-500/10 border border-cyan-400/30 px-4 py-1 rounded-md min-w-[110px] text-center">
+            <span class="text-cyan-400 text-[11px] font-bold uppercase tracking-tighter">Alternant</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
   <h4 class="text-purple-400 font-semibold mb-2">🛠️ Missions réalisées</h4>
   <ul class="text-gray-400 list-disc list-inside mb-4 text-left">
     <li>Réorganisation des bureaux et des lignes téléphoniques</li>
@@ -674,51 +871,75 @@ Stage réalisé au sein de la <strong>Direction des Systèmes d'Information (DSI
     <span class="skill-badge">Excel / Gestion commandes</span>
   </div>
 
-  <h4 class="text-purple-400 font-semibold mb-4 text-center">📂 Projets réalisés en entreprise</h4>
+<h4 class="text-purple-500 dark:text-purple-400 font-bold mb-6 text-center text-lg">📂 Projets réalisés en entreprise</h4>
 
-  <div class="relative group">
-    <button class="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-purple-600/70 hover:bg-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-      &#10094;
-    </button>
+<div class="relative group">
+  <button class="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-purple-600/80 hover:bg-purple-600 text-white rounded-full w-9 h-9 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-md">
+    &#10094;
+  </button>
 
-    <button class="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-purple-600/70 hover:bg-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-      &#10095;
-    </button>
+  <button class="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-purple-600/80 hover:bg-purple-600 text-white rounded-full w-9 h-9 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-md">
+    &#10095;
+  </button>
 
-    <div class="overflow-x-auto flex gap-4 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-purple-500 scrollbar-track-gray-700/20 px-2 py-4">
+  <div class="overflow-x-auto flex gap-6 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-purple-500 scrollbar-track-gray-200 dark:scrollbar-track-gray-700/20 px-4 py-6">
+    
+    <div class="min-w-[310px] md:min-w-[320px] flex-shrink-0 snap-start bg-white dark:bg-[#110a24] rounded-2xl p-6 border border-purple-500/20 dark:border-purple-500/40 shadow-sm dark:shadow-[0_0_15px_rgba(168,85,247,0.1)] hover:translate-y-[-8px] transition-all duration-300">
+      <div class="bg-gray-50 dark:bg-gray-900/50 rounded-xl mb-4 p-3 border border-gray-100 dark:border-purple-500/10">
+        <img src="Wordpress.webp" alt="Projet 1" class="w-full h-36 object-contain">
+      </div>
       
-      <div class="min-w-[220px] flex-shrink-0 snap-start bg-gray-800 rounded-lg p-4 border border-purple-500/30 hover:scale-105 transition-transform">
-        <img src="Wordpress.webp" alt="Projet 1" class="rounded-md mb-2 w-full h-32 object-contain bg-gray-900">
-        <h5 class="text-blue-400 font-semibold mb-1 text-sm">Dépannage Wordpress</h5>
-        <p class="text-gray-400 text-xs mb-2">
-          <strong>Objectif :</strong> Restaurer la continuité de service des sites.<br>
-          <strong>Moyens :</strong> Analyse de logs, debug PHP et gestion de base de données.<br>
-          <strong>Résultat :</strong> Sites sécurisés et 100% fonctionnels.
-        </p>
-        <a href="Administration-Serveur.html" class="text-purple-400 text-xs font-semibold hover:underline">📄 Voir le projet</a>
+      <h5 class="text-blue-600 dark:text-blue-400 font-bold mb-3 text-base">Dépannage Wordpress</h5>
+      
+      <div class="text-gray-700 dark:text-gray-300 text-xs space-y-2 mb-5 leading-relaxed">
+        <p><strong class="text-purple-600 dark:text-purple-400">Objectif :</strong> Assurer la continuité de service des plateformes web.</p>
+        <p><strong class="text-purple-600 dark:text-purple-400">Moyens :</strong> Analyse approfondie des logs et correction de scripts PHP.</p>
+        <p><strong class="text-purple-600 dark:text-purple-400">Résultat :</strong> Infrastructure web sécurisée et disponibilité à 100%.</p>
       </div>
+      
+      <a href="Administration-Serveur.html" class="inline-flex items-center text-purple-600 dark:text-purple-400 text-xs font-bold group/link">
+        <span class="border-b border-transparent group-hover/link:border-purple-400 transition-all text-sm italic">📄 Voir le dossier projet</span>
+      </a>
+    </div>
 
-      <div id="projet-win11" class="min-w-[220px] flex-shrink-0 snap-start bg-gray-800 rounded-lg p-4 border border-purple-500/30 hover:scale-105 transition-transform">
-        <img src="pc.webp" alt="Installation Windows 11" class="rounded-md mb-2 w-full h-32 object-contain bg-gray-900">
-        <h5 class="text-blue-400 font-semibold mb-1 text-sm">Préparation de nouveaux PC</h5>
-        <p class="text-gray-400 text-xs mb-2">
-          <strong>Objectif :</strong> Installer Windows 11 sur les nouveaux ordinateurs.<br>
-          <strong>Moyens :</strong> Installation automatique et connexion au serveur de l'entreprise.<br>
-          <strong>Résultat :</strong> PC prêts à l'emploi et sécurisés.
-        </p>
-        <a href="Windows.html" class="text-purple-400 text-xs font-semibold hover:underline">📄 Voir le projet</a>
+    <div class="min-w-[310px] md:min-w-[320px] flex-shrink-0 snap-start bg-white dark:bg-[#110a24] rounded-2xl p-6 border border-purple-500/20 dark:border-purple-500/40 shadow-sm dark:shadow-[0_0_15px_rgba(168,85,247,0.1)] hover:translate-y-[-8px] transition-all duration-300">
+      <div class="bg-gray-50 dark:bg-gray-900/50 rounded-xl mb-4 p-3 border border-gray-100 dark:border-purple-500/10">
+        <img src="pc.webp" alt="Installation Windows 11" class="w-full h-36 object-contain">
       </div>
+      
+      <h5 class="text-blue-600 dark:text-blue-400 font-bold mb-3 text-base">Préparation & Déploiement PC</h5>
+      
+      <div class="text-gray-700 dark:text-gray-300 text-xs space-y-2 mb-5 leading-relaxed">
+        <p><strong class="text-purple-600 dark:text-purple-400">Objectif :</strong> Mise à jour du parc informatique vers Windows 11.</p>
+        <p><strong class="text-purple-600 dark:text-purple-400">Moyens :</strong> Automatisation d'image système et jonction au domaine AD.</p>
+        <p><strong class="text-purple-600 dark:text-purple-400">Résultat :</strong> Postes clients homogènes, sécurisés et opérationnels.</p>
+      </div>
+      
+      <a href="Windows.html" class="inline-flex items-center text-purple-600 dark:text-purple-400 text-xs font-bold group/link">
+        <span class="border-b border-transparent group-hover/link:border-purple-400 transition-all text-sm italic">📄 Voir le dossier projet</span>
+      </a>
+    </div>
 
-      <div id="projet-bureau" class="min-w-[220px] flex-shrink-0 snap-start bg-gray-800 rounded-lg p-4 border border-purple-500/30 hover:scale-105 transition-transform">
-        <img src="bureau.jpg" alt="Réorganisation" class="rounded-md mb-2 w-full h-32 object-contain bg-gray-900">
-        <h5 class="text-blue-400 font-semibold mb-1 text-sm">Installation de postes et téléphones</h5>
-        <p class="text-gray-400 text-xs mb-2">
-          <strong>Objectif :</strong> Déplacer le matériel informatique et les lignes de téléphone.<br>
-          <strong>Moyens :</strong> Branchements réseau, réglages des téléphones et rangement des câbles.<br>
-          <strong>Résultat :</strong> Bureaux bien installés et matériel prêt à l'emploi.
-        </p>
-        <a href="projet2.html" class="text-purple-400 text-xs font-semibold hover:underline">📄 Voir le projet</a>
+    <div class="min-w-[310px] md:min-w-[320px] flex-shrink-0 snap-start bg-white dark:bg-[#110a24] rounded-2xl p-6 border border-purple-500/20 dark:border-purple-500/40 shadow-sm dark:shadow-[0_0_15px_rgba(168,85,247,0.1)] hover:translate-y-[-8px] transition-all duration-300">
+      <div class="bg-gray-50 dark:bg-gray-900/50 rounded-xl mb-4 p-3 border border-gray-100 dark:border-purple-500/10">
+        <img src="bureau.jpg" alt="Réorganisation" class="w-full h-36 object-contain">
       </div>
+      
+      <h5 class="text-blue-600 dark:text-blue-400 font-bold mb-3 text-base">Infrastructure & Téléphonie</h5>
+      
+      <div class="text-gray-700 dark:text-gray-300 text-xs space-y-2 mb-5 leading-relaxed">
+        <p><strong class="text-purple-600 dark:text-purple-400">Objectif :</strong> Déploiement de postes de travail et solutions VOIP.</p>
+        <p><strong class="text-purple-600 dark:text-purple-400">Moyens :</strong> Brassage de baie réseau et configuration de lignes SIP.</p>
+        <p><strong class="text-purple-600 dark:text-purple-400">Résultat :</strong> Environnement de travail collaboratif prêt à l'emploi.</p>
+      </div>
+      
+      <a href="projet2.html" class="inline-flex items-center text-purple-600 dark:text-purple-400 text-xs font-bold group/link">
+        <span class="border-b border-transparent group-hover/link:border-purple-400 transition-all text-sm italic">📄 Voir le dossier projet</span>
+      </a>
+    </div>
+
+  </div>
+</div>
 
     </div>
   </div>
@@ -788,19 +1009,7 @@ Stage réalisé au sein de la <strong>Direction des Systèmes d'Information (DSI
         Mise en place et sécurisation d’un accès distant Linux.
       </p>
       <div class="text-center">
-        <a href="docs/tp_ssh.pdf" target="_blank" class="btn-primary">📄 Voir le TP</a>
-      </div>
-    </div>
-
-    <!-- VPN -->
-    <div id="projet-openvpn" class="card overflow-hidden">
-      <img src="OpenVPN.png" alt="VPN" class="w-full h-40 object-cover rounded-xl mb-4">
-      <h4 class="text-lg font-semibold text-purple-300 mb-2 text-center">VPN (OpenVPN)</h4>
-      <p class="text-gray-400 text-sm mb-4 text-center">
-        Tunnel sécurisé pour accès distant.
-      </p>
-      <div class="text-center">
-        <a href="openvpn.html" target="_blank" class="btn-primary">📄 Voir le TP</a>
+        <a href="ssh.html" target="_blank" class="btn-primary">📄 Voir le TP</a>
       </div>
     </div>
 
@@ -857,7 +1066,7 @@ Stage réalisé au sein de la <strong>Direction des Systèmes d'Information (DSI
         Segmentation réseau pour améliorer la sécurité.
       </p>
       <div class="text-center">
-        <a href="docs/tp_vlan.pdf" target="_blank" class="btn-primary">📄 Voir le TP</a>
+        <a href="vlan.html" target="_blank" class="btn-primary">📄 Voir le TP</a>
       </div>
     </div>
 
@@ -893,7 +1102,7 @@ Stage réalisé au sein de la <strong>Direction des Systèmes d'Information (DSI
         Configuration du protocole HSRP.
       </p>
       <div class="text-center">
-        <a href="docs/tp_dhcp_router.pdf" target="_blank" class="btn-primary">📄 Voir le TP</a>
+        <a href="hsrp.html" target="_blank" class="btn-primary">📄 Voir le TP</a>
       </div>
     </div>
 
@@ -901,153 +1110,94 @@ Stage réalisé au sein de la <strong>Direction des Systèmes d'Information (DSI
 
 </section>
 
-<!-- ===== Veille technologique (Cybersécurité + Réseau) ===== -->
 <section id="veille" class="py-24 px-6 max-w-6xl mx-auto">
-  <h2 class="section-title">Veille technologique</h2>
-
-  <div class="card mb-10">
-    <p class="text-gray-300 mb-4">
-      Je réalise une veille sur deux axes : <span class="text-purple-300 font-semibold">Cybersécurité</span> et
-      <span class="text-purple-300 font-semibold">Réseaux (VLAN / VPN)</span>. L’objectif est de suivre les menaces,
-      les bonnes pratiques et les évolutions des infrastructures (segmentation, accès distant sécurisé, etc.).
-    </p>
-
-    <h3 class="text-purple-300 font-semibold mb-2">🎯 Méthode de veille</h3>
-    <ul class="list-disc list-inside text-gray-400 mb-4">
-      <li>Sources officielles : ANSSI / CERT-FR</li>
-      <li>Suivi d’articles et rapports (cyber, vulnérabilités, bonnes pratiques)</li>
-      <li>Notion/Word/PDF pour archiver : résumé + impact + actions à retenir</li>
-      <li>Objectif : relier les infos aux situations réelles (stage/alternance)</li>
-    </ul>
-
-    <div class="flex flex-wrap gap-2 mb-4">
-      <span class="veille-tag"><i class="fa-solid fa-shield-halved"></i> Cybersécurité</span>
-      <span class="veille-tag"><i class="fa-solid fa-network-wired"></i> VLAN</span>
-      <span class="veille-tag"><i class="fa-solid fa-lock"></i> VPN</span>
-      <span class="veille-tag"><i class="fa-solid fa-triangle-exclamation"></i> Vulnérabilités</span>
-      <span class="veille-tag"><i class="fa-solid fa-eye"></i> Supervision</span>
-    </div>
-
-    <!-- Optionnel : ajoute ton PDF de veille ici quand tu l'auras -->
-    <div class="flex flex-col sm:flex-row gap-3">
-      <a href="Veille_Brandon_Betancourt.pdf" class="btn-primary" download="Veille_Brandon_Betancourt.pdf">
-        <i class="fa-solid fa-file-arrow-down mr-2"></i>Télécharger ma veille (PDF)
-      </a>
-      <a href="Veille_Brandon_Betancourt.pdf" class="btn-primary" target="_blank" rel="noopener">
-        <i class="fa-solid fa-up-right-from-square mr-2"></i>Voir ma veille
-      </a>
-    </div>
-
-    <p class="text-gray-500 text-sm mt-3">
-      (Si tu n’as pas encore le PDF, laisse ces boutons : ils fonctionneront dès que tu ajoutes le fichier.)
-    </p>
+  <div class="text-center mb-16">
+    <h2 class="section-title">🔍 Veille Technologique</h2>
+    <p class="text-gray-400 mt-2">Suivi des menaces, outils et évolutions des infrastructures</p>
   </div>
 
-  <!-- Cartes d’articles (placeholders à remplacer) -->
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  <div class="grid lg:grid-cols-3 gap-8">
     
-  <!-- Carte 1 : Cybersécurité -->
-  <div class="veille-card">
-    <div class="flex items-center justify-between mb-3">
-      <span class="veille-tag">
-        <i class="fa-solid fa-shield-halved"></i> Cybersécurité
-      </span>
-      <span class="text-gray-400 text-sm"></span>
+    <div class="lg:col-span-2 card p-8 border-l-4 border-l-purple-500">
+      <div class="text-purple-400 text-xs font-bold uppercase tracking-widest mb-2 italic">Définition & Approche</div>
+      <p class="text-gray-200 text-lg leading-relaxed mb-6">
+        Ma veille me permet de suivre les menaces et les bonnes pratiques indispensables au métier d’administrateur réseaux. Je filtre les flux pour garder uniquement les sujets exploitables en entreprise.
+      </p>
+      
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="p-4 bg-purple-500/5 rounded-xl border border-purple-500/10">
+          <h4 class="text-blue-400 font-bold mb-2"><i class="fa-solid fa-bullseye mr-2"></i>Ma Méthode</h4>
+          <ul class="text-gray-400 text-sm space-y-2">
+            <li>• Analyse des rapports ANSSI / CERT-FR</li>
+            <li>• Archivage des vulnérabilités critiques</li>
+            <li>• Test de solutions en environnement lab</li>
+          </ul>
+        </div>
+        <div class="p-4 bg-blue-500/5 rounded-xl border border-blue-500/10">
+          <h4 class="text-purple-400 font-bold mb-2"><i class="fa-solid fa-star mr-2"></i>Ma Valeur Ajoutée</h4>
+          <p class="text-gray-400 text-sm italic">
+            "Je ne me contente pas de lire :  je sélectionne ce qui est utile et je le relie à mes compétences en cybersécurité, réseau, supervision et infrastructure."
+        </div>
+      </div>
     </div>
 
-    <h3 class="text-lg font-semibold text-purple-200 mb-2">
-      Ransomware : menaces et bonnes pratiques
-    </h3>
-
-    <p class="text-gray-400 mb-4 text-sm">
-      Analyse des ransomwares : vecteurs d’attaque (phishing, failles non corrigées),
-      importance des sauvegardes, de la segmentation réseau et de l’authentification forte (MFA).
-    </p>
-
-    <a class="veille-link"
-       href="https://www.cert.ssi.gouv.fr/alerte/"
-       target="_blank" rel="noopener">
-      Source : CERT-FR
-      <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>
-    </a>
-  </div>
-
-  <!-- Carte 2 : VLAN -->
-  <div class="veille-card">
-    <div class="flex items-center justify-between mb-3">
-      <span class="veille-tag">
-        <i class="fa-solid fa-network-wired"></i> Réseau / VLAN
-      </span>
-      <span class="text-gray-400 text-sm"></span>
+    <div class="card p-8 bg-gradient-to-br from-gray-800 to-[#0a0219]">
+      <h3 class="text-xl font-bold text-white mb-6">📌 Mes Sources</h3>
+      <div class="space-y-4">
+        <div class="flex items-start gap-3">
+          <div class="w-8 h-8 rounded bg-purple-600/20 flex items-center justify-center text-purple-400 shrink-0"><i class="fa-brands fa-google"></i></div>
+          <div>
+            <h4 class="text-gray-200 font-bold text-sm">Google Alerts</h4>
+            <p class="text-gray-500 text-xs italic">Alertes ciblées sur les ransomwares</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3">
+          <div class="w-8 h-8 rounded bg-blue-600/20 flex items-center justify-center text-blue-400 shrink-0"><i class="fa-brands fa-linkedin"></i></div>
+          <div>
+            <h4 class="text-gray-200 font-bold text-sm">LinkedIn Professional</h4>
+            <p class="text-gray-500 text-xs italic">Retours terrain d'experts IT</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3">
+          <div class="w-8 h-8 rounded bg-red-600/20 flex items-center justify-center text-red-400 shrink-0"><i class="fa-solid fa-shield-virus"></i></div>
+          <div>
+            <h4 class="text-gray-200 font-bold text-sm">CERT-FR / ANSSI</h4>
+            <p class="text-gray-500 text-xs italic">Bulletin officiel de vulnérabilités</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-8 pt-6 border-t border-white/5">
+        <a href="Veille_Brandon_Betancourt.pdf" class="btn-primary w-full text-sm py-3 text-center block rounded-xl shadow-lg transition-transform hover:scale-105" target="_blank">
+          <i class="fa-solid fa-file-pdf mr-2"></i>Consulter le dossier Veille
+        </a>
+      </div>
     </div>
-
-    <h3 class="text-lg font-semibold text-purple-200 mb-2">
-      Segmentation réseau avec les VLAN
-    </h3>
-
-    <p class="text-gray-400 mb-4 text-sm">
-      Présentation des VLAN : séparation logique des flux (utilisateurs, serveurs, imprimantes),
-      réduction de la surface d’attaque et amélioration de la sécurité globale du réseau.
-    </p>
-
-    <a class="veille-link"
-   href="https://www.cisco.com/c/dam/en/us/td/docs/switches/lan/catalyst9200/software/release/16-11/configuration_guide/vlan/configuring_vlans.html"
-   target="_blank" rel="noopener">
-  Source : Cisco (Configuring VLANs)
-  <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>
-    </a>
-
   </div>
 
-  <!-- Carte 3 : VPN -->
-  <div class="veille-card">
-    <div class="flex items-center justify-between mb-3">
-      <span class="veille-tag">
-        <i class="fa-solid fa-lock"></i> VPN
-      </span>
-      <span class="text-gray-400 text-sm"></span>
-    </div>
-
-    <h3 class="text-lg font-semibold text-purple-200 mb-2">
-      VPN : IPsec, SSL et accès distant sécurisé
-    </h3>
-
-    <p class="text-gray-400 mb-4 text-sm">
-      Comparaison des VPN IPsec et SSL, bonnes pratiques de sécurité (MFA, certificats),
-      et risques liés aux accès distants mal configurés.
-    </p>
-
-    <a class="veille-link"
-       href="https://www.cloudflare.com/fr-fr/learning/access-management/what-is-a-vpn/"
-       target="_blank" rel="noopener">
-      Source : Cloudflare
-      <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>
-    </a>
+<div class="mt-12 p-6 bg-purple-500/5 rounded-2xl border border-dashed border-purple-500/30">
+  <h4 class="text-white font-bold mb-4 flex items-center gap-2">
+    <i class="fa-solid fa-check-double text-purple-400"></i> Ce que j'applique concrètement
+  </h4>
+<div class="flex flex-wrap gap-3">
+    
+    <span class="px-4 py-2 bg-[#0a0219] border border-white/10 !text-white text-xs rounded-lg font-semibold shadow-md transition-transform hover:scale-105">
+      Hygiène Informatique
+    </span>
+    
+    <span class="px-4 py-2 bg-[#0a0219] border border-white/10 !text-white text-xs rounded-lg font-semibold shadow-md transition-transform hover:scale-105">
+      Sauvegardes régulières
+    </span>
+    
+    <span class="px-4 py-2 bg-[#0a0219] border border-white/10 !text-white text-xs rounded-lg font-semibold shadow-md transition-transform hover:scale-105">
+      Mises à jour critiques
+    </span>
+    
+    <span class="px-4 py-2 bg-[#0a0219] border border-white/10 !text-white text-xs rounded-lg font-semibold shadow-md transition-transform hover:scale-105">
+      Principe du moindre privilège
+    </span>
+    
   </div>
-
-</div>
-
-<div class="card mt-10">
-  <h3 class="text-purple-300 font-semibold mb-3">🔎 Sources que je consulte</h3>
-  <ul class="list-disc list-inside text-gray-400">
-    <li><a class="veille-link" href="https://www.ssi.gouv.fr/" target="_blank" rel="noopener">ANSSI (actualités & recommandations)</a></li>
-    <li><a class="veille-link" href="https://www.cert.ssi.gouv.fr/" target="_blank" rel="noopener">CERT-FR (alertes & vulnérabilités)</a></li>
-    <li><a class="veille-link" href="https://www.cybermalveillance.gouv.fr/" target="_blank" rel="noopener">Cybermalveillance.gouv.fr (bonnes pratiques)</a></li>
-    <li><a class="veille-link" href="https://cve.mitre.org/" target="_blank" rel="noopener">CVE (base vulnérabilités)</a></li>
-    <li><a class="veille-link" href="https://www.cloudflare.com/fr-fr/learning/" target="_blank" rel="noopener">Cloudflare Learning (VPN / Zero Trust)</a></li>
-    <li><a class="veille-link" href="https://www.cisco.com/" target="_blank" rel="noopener">Cisco (docs réseaux VLAN/VPN)</a></li>
-  </ul>
-</div>
-
-  <!-- Mini bloc "ce que j'applique" -->
-  <div class="card mt-10">
-    <h3 class="text-purple-300 font-semibold mb-3">✅ Ce que j’applique concrètement</h3>
-    <ul class="list-disc list-inside text-gray-400">
-      <li>Segmentation : séparation postes / imprimantes / serveurs (VLAN) + règles de filtrage</li>
-      <li>Accès distant : VPN + MFA (si possible) + comptes nominatifs</li>
-      <li>Hygiène cyber : mises à jour, mots de passe robustes, sauvegardes, principe du moindre privilège</li>
-      <li>Supervision : surveillance d’événements / logs (selon contexte)</li>
-    </ul>
   </div>
 </section>
 
