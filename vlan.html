@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projet BTS – Segmentation Réseau (VLAN)</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: #0a0219;
+      color: #f3e8ff;
+      overflow-x: hidden;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(168, 85, 247, 0.22);
+      border-radius: 20px;
+      padding: 2rem;
+      transition: all .25s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 22px rgba(168, 85, 247, 0.18);
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #c084fc;
+      margin-bottom: 1.25rem;
+      line-height: 1.15;
+    }
+
+    .mini-title {
+      color: #d8b4fe;
+      font-weight: 700;
+      margin-bottom: .5rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      color: #e9d5ff;
+      padding: .35rem .8rem;
+      border-radius: 9999px;
+      font-size: .85rem;
+      font-weight: 700;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #7e22ce, #a855f7);
+      color: #fff;
+      padding: 0.55rem 1.2rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      transition: all 0.25s ease;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      color: #c084fc;
+      font-weight: 700;
+      text-decoration: none;
+      margin-bottom: 1.25rem;
+    }
+    .back-link:hover { text-decoration: underline; }
+
+    /* MODE JOUR */
+    body.light { background: #f9fafb; color: #111827; }
+    body.light .card { background: #f5f3ff; border: 1px solid rgba(109, 40, 217, 0.25); }
+    body.light .section-title { color: #6d28d9; }
+    body.light .mini-title { color: #4c1d95; }
+    body.light .badge { background: rgba(109, 40, 217, 0.10); border-color: rgba(109, 40, 217, 0.25); color: #4c1d95; }
+    body.light .back-link, body.light .conclusion-text, body.light p, body.light li { color: #111827 !important; }
+
+    .topbar {
+      position: sticky; top: 0; z-index: 40;
+      background: rgba(18, 0, 33, 0.78);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(168, 85, 247, 0.25);
+    }
+    body.light .topbar { background: rgba(255,255,255,0.85); border-bottom: 1px solid #e5e7eb; }
+  </style>
+</head>
+
+<body>
+
+  <div class="topbar">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <span class="badge"><i class="fa-solid fa-network-wired"></i> Infrastructure Réseau</span>
+        <span class="text-sm text-gray-300 hidden sm:inline">Projet BTS – Segmentation VLAN</span>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button id="themeToggle" class="btn-primary w-11 h-11 p-0 rounded-full">
+          <i id="themeIcon" class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <main class="px-6 py-12 max-w-5xl mx-auto">
+
+    <a href="index.html#skills" class="back-link">
+      <i class="fa-solid fa-arrow-left"></i> Retour au portfolio
+    </a>
+
+    <h1 class="section-title">
+      🌐 Segmentation et Sécurisation Réseau (VLAN 802.1Q)
+    </h1>
+
+    <div class="card mb-8">
+      <div class="flex flex-wrap gap-2 mb-4">
+        <span class="badge"><i class="fa-solid fa-layer-group"></i> VLAN (Tagging)</span>
+        <span class="badge"><i class="fa-solid fa-shield-virus"></i> Isolation</span>
+        <span class="badge"><i class="fa-solid fa-server"></i> Switch Cisco / HP</span>
+        <span class="badge"><i class="fa-solid fa-route"></i> Routage Inter-VLAN</span>
+      </div>
+
+      <p class="text-gray-300">
+        Mise en œuvre d'une segmentation réseau logique (VLAN) pour isoler les différents flux d'une organisation (Administration, Comptabilité, Invités). 
+        Cette architecture réduit les domaines de diffusion et empêche la communication non autorisée entre services sensibles.
+      </p>
+    </div>
+
+    <div class="card mb-8">
+      <h2 class="mini-title">📌 Contexte</h2>
+      <p class="text-gray-300">
+        Afin de renforcer la sécurité d'une entreprise, il a été décidé de ne plus utiliser un seul réseau plat (flat network). 
+        L'objectif est de séparer les utilisateurs pour éviter qu'un visiteur en Wi-Fi puisse accéder aux serveurs de production.
+      </p>
+    </div>
+
+    <div class="card mb-8">
+      <h2 class="mini-title">🎯 Objectifs</h2>
+      <ul class="list-disc list-inside text-gray-300 space-y-1">
+        <li>Créer des réseaux virtuels distincts (VLAN 10, 20, 30...)</li>
+        <li>Assigner les ports des commutateurs (Access Mode)</li>
+        <li>Configurer les liaisons entre switches (Trunk Mode)</li>
+        <li>Mettre en place des ACL (Access Control Lists) pour filtrer les accès</li>
+      </ul>
+    </div>
+
+    <div class="card mb-8">
+      <h2 class="mini-title">🧩 Étapes réalisées (procédure CLI)</h2>
+      <ol class="list-decimal list-inside text-gray-300 space-y-2">
+        <li>Définition du plan d'adressage IP par VLAN.</li>
+        <li>Création des VLANs sur le Switch : <code class="text-purple-300">vlan 10</code>, <code class="text-purple-300">name ADMIN</code>.</li>
+        <li>Configuration des ports d'accès : <code class="text-purple-300">switchport mode access</code>.</li>
+        <li>Configuration du lien Trunk entre le switch et le routeur (Encapsulation 802.1Q).</li>
+        <li>Test de connectivité (Ping) et vérification de l'isolation inter-VLAN.</li>
+      </ol>
+    </div>
+
+    <div class="card mb-8">
+      <h2 class="mini-title">✅ Résultats</h2>
+      <p class="text-gray-300">
+        Le réseau est désormais segmenté. Une compromission sur le réseau "Invité" n'impacte plus le réseau "Direction". 
+        Les performances globales sont améliorées grâce à la réduction du trafic de broadcast.
+      </p>
+    </div>
+
+    <div class="card mb-10">
+      <h2 class="mini-title">🎓 Compétences mobilisées</h2>
+      <ul class="list-disc list-inside text-gray-300 space-y-1">
+        <li><strong>SISR</strong> : Configuration d'équipements d'interconnexion (Switch/Routeur)</li>
+        <li><strong>Cybersécurité</strong> : Application du principe de moindre privilège par segmentation</li>
+        <li><strong>Infrastructure</strong> : Optimisation du trafic réseau local</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2 class="mini-title">🖼️ Preuves / Captures</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <div class="bg-black p-4 rounded-lg mb-2 font-mono text-xs text-green-400">
+            Switch# show vlan brief<br>
+            10 &nbsp; ADMIN &nbsp;&nbsp;&nbsp;&nbsp; active &nbsp; Fa0/1, Fa0/2<br>
+            20 &nbsp; USERS &nbsp;&nbsp;&nbsp;&nbsp; active &nbsp; Fa0/5<br>
+            30 &nbsp; GUEST &nbsp;&nbsp;&nbsp;&nbsp; active &nbsp; Fa0/24
+          </div>
+          <p class="text-sm text-gray-300">Vérification de la base de données VLAN.</p>
+        </div>
+
+        <div>
+          <div class="bg-black p-4 rounded-lg mb-2 font-mono text-xs text-blue-400">
+            interface FastEthernet0/24<br>
+            &nbsp;switchport mode trunk<br>
+            &nbsp;switchport trunk allowed vlan 10,20,30
+          </div>
+          <p class="text-sm text-gray-300">Configuration d'un port Trunk pour le transport des tags.</p>
+        </div>
+      </div>
+
+      <div class="mt-6">
+        <p class="conclusion-text font-semibold">
+          Conclusion : La segmentation par VLAN constitue la première ligne de défense d'une infrastructure réseau moderne.
+        </p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="py-8 text-center text-sm text-gray-500">
+    © 2025 — Fiche projet BTS (Sécurité Réseau)
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const themeToggle = document.getElementById('themeToggle');
+      const themeIcon = document.getElementById('themeIcon');
+      const body = document.body;
+
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        body.classList.add('light');
+        themeIcon.classList.replace('fa-moon', 'fa-sun');
+      }
+
+      themeToggle.addEventListener('click', () => {
+        body.classList.toggle('light');
+        const isLight = body.classList.contains('light');
+        themeIcon.classList.toggle('fa-sun', isLight);
+        themeIcon.classList.toggle('fa-moon', !isLight);
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+      });
+    });
+  </script>
+
+</body>
+</html>

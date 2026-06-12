@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projet BTS – Sécurité Réseau & ACL Cisco</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: #0a0219;
+      color: #f3e8ff;
+      overflow-x: hidden;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(168, 85, 247, 0.22);
+      border-radius: 20px;
+      padding: 2rem;
+      transition: all .25s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 22px rgba(168, 85, 247, 0.18);
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #c084fc;
+      margin-bottom: 1.5rem;
+      line-height: 1.15;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      color: #e9d5ff;
+      padding: .35rem .8rem;
+      border-radius: 9999px;
+      font-size: .85rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #7e22ce, #a855f7);
+      color: #fff;
+      width: 44px;
+      height: 44px;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      cursor: pointer;
+      transition: all .25s ease;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      background: rgba(18, 0, 33, 0.80);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(168, 85, 247, 0.25);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      font-weight: 800;
+      color: #c084fc;
+      text-decoration: none;
+    }
+
+    /* Style spécifique pour le terminal Cisco */
+    .terminal-cisco {
+      background: #1e1e1e;
+      border-radius: 12px;
+      padding: 1.5rem;
+      font-family: 'Consolas', monospace;
+      font-size: 0.9rem;
+      color: #d4d4d4;
+      border-left: 4px solid #a855f7;
+      overflow-x: auto;
+    }
+
+    /* MODE JOUR */
+    body.light { background: #f9fafb; color: #111827; }
+    body.light .topbar { background: rgba(255,255,255,0.90); border-bottom: 1px solid #e5e7eb; }
+    body.light .card { background: #f5f3ff; border: 1px solid rgba(109, 40, 217, 0.22); }
+    body.light .section-title { color: #6d28d9; }
+    body.light .badge { background: rgba(109, 40, 217, 0.10); border-color: rgba(109, 40, 217, 0.25); color: #4c1d95; }
+    body.light .text-gray-300, body.light .text-gray-400, body.light p, body.light li, body.light strong, body.light span, body.light div { color: #111827 !important; }
+  </style>
+</head>
+
+<body>
+
+<div class="topbar">
+  <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <span class="badge">
+        <i class="fa-solid fa-shield-halved"></i>
+        Sécurité Réseau
+      </span>
+      <span class="text-sm text-gray-300">
+        Projet BTS – Brandon Betancourt
+      </span>
+    </div>
+    <button id="themeToggle" class="btn-primary" aria-label="Toggle Theme">
+      <i id="themeIcon" class="fa-solid fa-moon"></i>
+    </button>
+  </div>
+</div>
+
+<main class="px-6 py-12 max-w-5xl mx-auto">
+
+  <a href="index.html#projet-acl" class="back-link mb-6 inline-flex">
+  <i class="fa-solid fa-arrow-left"></i>
+  Retour aux projets
+</a>
+
+  <h1 class="section-title">
+    🛡️ Sécurité Réseau & ACL Cisco
+  </h1>
+
+  <div class="card mb-8">
+    <h2 class="text-purple-300 font-semibold mb-2">📌 Pourquoi ce projet ?</h2>
+    <p class="text-gray-300">
+      L'objectif était de sécuriser un réseau d'entreprise segmenté en plusieurs zones (VLANs). J'ai mis en place une politique de <strong>"Moindre Privilège"</strong> pour filtrer les flux et empêcher tout accès non autorisé entre les services sensibles et les postes invités.
+    </p>
+  </div>
+
+  <div class="card mb-8">
+    <h2 class="text-purple-300 font-semibold mb-2">🎯 Les piliers de la configuration</h2>
+    <ul class="list-disc list-inside text-gray-400 space-y-3">
+      <li><strong>Segmentation VLAN :</strong> Isolation physique et logique des différents services de l'entreprise.</li>
+      <li><strong>Extended ACLs :</strong> Listes de contrôle d'accès précises filtrant par IP source/destination et ports (TCP/UDP).</li>
+      <li><strong>Administration Sécurisée :</strong> Restriction de l'accès SSH au routeur uniquement pour le poste de l'administrateur.</li>
+    </ul>
+  </div>
+
+  <div class="card mb-8">
+    <h2 class="text-purple-300 font-semibold mb-2">🛠️ Ce que j'ai réalisé</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="p-4 bg-white/5 rounded-xl border border-purple-500/20">
+        <strong class="text-purple-300">Filtrage Inter-VLAN</strong>
+        <p class="text-sm text-gray-400">Interdiction du ping (ICMP) et isolation des postes portables vis-à-vis des serveurs.</p>
+      </div>
+      <div class="p-4 bg-white/5 rounded-xl border border-purple-500/20">
+        <strong class="text-purple-300">Accès HTTPS Uniquement</strong>
+        <p class="text-sm text-gray-400">Restriction du trafic web vers le serveur central au seul protocole port 443.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-8">
+    <h2 class="text-purple-300 font-semibold mb-4">💻 Aperçu de la Configuration (Cisco CLI)</h2>
+    <div class="terminal-cisco">
+      <span style="color: #6a9955;">! Création de l'ACL pour le VLAN Fixe</span><br>
+      <span style="color: #569cd6;">ip access-list extended</span> ACL_FIXES<br>
+      &nbsp;<span style="color: #4caf50;">permit tcp</span> 192.168.1.0 0.0.0.255 host 172.16.0.1 eq 443<br>
+      &nbsp;<span style="color: #f44336;">deny ip</span> 192.168.1.0 0.0.0.255 172.16.0.0 0.0.255.255<br>
+      &nbsp;<span style="color: #4caf50;">permit ip any any</span><br>
+      <span style="color: #6a9955;">! Application à l'interface entrante</span><br>
+      <span style="color: #569cd6;">interface</span> GigabitEthernet0/0<br>
+      &nbsp;ip access-group ACL_FIXES in
+    </div>
+  </div>
+
+  <div class="card mb-8">
+    <h2 class="text-purple-300 font-semibold mb-2">✅ Compétences validées</h2>
+    <p class="text-gray-300">
+      J'ai réalisé ce projet de manière hybride : modélisation sur <strong>Cisco Packet Tracer</strong> pour valider la logique, puis déploiement sur <strong>matériel physique (Routeurs ISR & Switchs 2960)</strong> en laboratoire. Cela a renforcé ma maîtrise de la CLI Cisco et du diagnostic réseau.
+    </p>
+  </div>
+
+  <div class="card mt-10">
+    <h2 class="text-purple-300 font-semibold mb-4">🖼️ Environnement de Travail</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="card text-center">
+        <div class="mb-3 text-4xl text-purple-400"><i class="fa-solid fa-diagram-project"></i></div>
+        <p class="text-sm text-gray-400 font-semibold">Packet Tracer</p>
+        <p class="text-xs text-gray-500">Simulation et tests de la table de routage.</p>
+      </div>
+      <div class="card text-center">
+        <div class="mb-3 text-4xl text-purple-400"><i class="fa-solid fa-microchip"></i></div>
+        <p class="text-sm text-gray-400 font-semibold">Matériel Cisco</p>
+        <p class="text-xs text-gray-500">Configuration réelle sur Switchs et Routeurs.</p>
+      </div>
+      <div class="card text-center">
+        <div class="mb-3 text-4xl text-purple-400"><i class="fa-solid fa-terminal"></i></div>
+        <p class="text-sm text-gray-400 font-semibold">SSH / Console</p>
+        <p class="text-xs text-gray-500">Accès sécurisé pour l'administration distante.</p>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="py-10 text-center text-sm text-gray-500">
+  © 2026 — Brandon Betancourt | Cybersécurité & Réseaux (BTS SIO)
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const body = document.body;
+    const savedTheme = localStorage.getItem('theme');
+
+    if (savedTheme === 'light') {
+      body.classList.add('light');
+      themeIcon.classList.replace('fa-moon', 'fa-sun');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('light');
+      const isLight = body.classList.contains('light');
+      themeIcon.classList.toggle('fa-sun', isLight);
+      themeIcon.classList.toggle('fa-moon', !isLight);
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+  });
+</script>
+
+</body>
+</html>

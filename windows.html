@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projet BTS – Préparation d'ordinateurs</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body { font-family: 'Outfit', sans-serif; background: #0a0219; color: #f3e8ff; overflow-x: hidden; }
+    .card { background: rgba(255,255,255,0.08); border: 1px solid rgba(168, 85, 247, 0.22); border-radius: 20px; padding: 2rem; transition: all .25s ease; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 10px 22px rgba(168, 85, 247, 0.18); }
+    .section-title { font-size: 2.2rem; font-weight: 700; color: #c084fc; margin-bottom: 1.25rem; line-height: 1.15; }
+    .mini-title { color: #d8b4fe; font-weight: 700; margin-bottom: .5rem; }
+    .badge { display: inline-flex; align-items: center; gap: .45rem; background: rgba(168, 85, 247, 0.15); border: 1px solid rgba(168, 85, 247, 0.3); color: #e9d5ff; padding: .35rem .8rem; border-radius: 9999px; font-size: .85rem; font-weight: 700; }
+    .btn-primary { background: linear-gradient(90deg, #7e22ce, #a855f7); color: #fff; padding: 0.55rem 1.2rem; border-radius: 9999px; font-weight: 700; transition: all 0.25s ease; border: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: .5rem; white-space: nowrap; }
+    .back-link { display: inline-flex; align-items: center; gap: .5rem; color: #c084fc; font-weight: 700; text-decoration: none; margin-bottom: 1.25rem; }
+    .back-link:hover { text-decoration: underline; }
+    .proof-img { border-radius: 14px; border: 1px solid rgba(168, 85, 247, 0.25); box-shadow: 0 10px 18px rgba(0,0,0,.25); }
+    
+    body.light { background: #f9fafb; color: #111827; }
+    body.light .card { background: #f5f3ff; border: 1px solid rgba(109, 40, 217, 0.25); }
+    body.light .section-title { color: #6d28d9; }
+    body.light .mini-title { color: #4c1d95; }
+    body.light .badge { background: rgba(109, 40, 217, 0.10); border-color: rgba(109, 40, 217, 0.25); color: #4c1d95; }
+    body.light .back-link { color: #111827; }
+    .topbar { position: sticky; top: 0; z-index: 40; background: rgba(18, 0, 33, 0.78); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(168, 85, 247, 0.25); }
+    body.light .topbar { background: rgba(255,255,255,0.85); border-bottom: 1px solid #e5e7eb; }
+    body.light p, body.light li, body.light span, body.light div { color: #111827; }
+    body.light .text-gray-300, body.light .text-gray-400 { color: #111827 !important; }
+  </style>
+</head>
+
+<body>
+
+  <div class="topbar">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <span class="badge"><i class="fa-solid fa-laptop-code"></i> Installation PC</span>
+        <span class="text-sm text-gray-300 hidden sm:inline">Projet BTS – Déploiement Windows 11</span>
+      </div>
+      <button id="themeToggle" class="btn-primary w-11 h-11 p-0 rounded-full">
+        <i id="themeIcon" class="fa-solid fa-moon"></i>
+      </button>
+    </div>
+  </div>
+
+  <main class="px-6 py-12 max-w-5xl mx-auto">
+
+    <a href="index.html#projet-win11" class="back-link">
+      <i class="fa-solid fa-arrow-left"></i> Retour au portfolio
+    </a>
+
+    <h1 class="section-title">
+      💻 Installation de Windows 11 et connexion au réseau
+    </h1>
+
+    <div class="card mb-8">
+      <div class="flex flex-wrap gap-2 mb-4">
+        <span class="badge"><i class="fa-brands fa-windows"></i> Windows 11</span>
+        <span class="badge"><i class="fa-solid fa-server"></i> Serveur Central</span>
+        <span class="badge"><i class="fa-solid fa-user-check"></i> Comptes Employés</span>
+      </div>
+      <p class="text-gray-300">
+        L'entreprise a acheté de nouveaux ordinateurs. Mon rôle a été d'installer le système Windows 11 sur tous les postes en même temps, puis de les relier au serveur central pour que les employés puissent se connecter avec leur identifiant.
+      </p>
+    </div>
+
+    <div class="card mb-8">
+      <h2 class="mini-title">📌 C'est quoi ce projet ?</h2>
+      <p class="text-gray-300">
+        Au lieu d'installer chaque ordinateur un par un (ce qui prendrait des jours), j'ai utilisé une méthode pour les préparer tous d'un coup. Ensuite, je les ai intégrés au réseau de l'entreprise pour qu'ils soient sécurisés et contrôlés par le serveur.
+      </p>
+    </div>
+
+    <div class="card mb-8">
+      <h2 class="mini-title">🎯 Mes objectifs</h2>
+      <ul class="list-disc list-inside text-gray-300 space-y-1">
+        <li>Installer Windows 11 rapidement sur plusieurs PC.</li>
+        <li>S'assurer que tous les ordinateurs ont les mêmes logiciels.</li>
+        <li>Connecter les PC au "Domaine" (le cerveau de l'entreprise).</li>
+        <li>Permettre aux employés de retrouver leurs dossiers sur n'importe quel poste.</li>
+      </ul>
+    </div>
+
+    <div class="card mb-8">
+      <h2 class="mini-title">🧩 Ce que j'ai fait concrètement</h2>
+      <ol class="list-decimal list-inside text-gray-300 space-y-2">
+        <li><strong>Préparation :</strong> J'ai créé un "PC modèle" avec Windows 11 et les bons réglages.</li>
+        <li><strong>Envoi :</strong> J'ai envoyé cette copie parfaite sur les nouveaux ordinateurs par le réseau.</li>
+        <li><strong>Connexion :</strong> J'ai lié chaque ordinateur au serveur de l'entreprise (le Domaine).</li>
+        <li><strong>Vérification :</strong> J'ai testé si un employé pouvait ouvrir sa session avec son mot de passe habituel.</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h2 class="mini-title">🖼️ Preuves du travail</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+        <div>
+          <div class="proof-img w-full h-48 bg-gray-900 flex items-center justify-center text-gray-500 mb-3">
+             <i class="fa-solid fa-display text-4xl"></i>
+          </div>
+          <p class="text-sm text-gray-300">Installation de Windows 11 en cours sur les postes.</p>
+        </div>
+        <div>
+          <div class="proof-img w-full h-48 bg-gray-900 flex items-center justify-center text-gray-500 mb-3">
+             <i class="fa-solid fa-network-wired text-4xl"></i>
+          </div>
+          <p class="text-sm text-gray-300">Validation de la connexion au serveur de l'entreprise.</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="py-8 text-center text-sm text-gray-500">
+    © 2026 — Brandon Betancourt | Installation Système
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const themeToggle = document.getElementById('themeToggle');
+      const themeIcon = document.getElementById('themeIcon');
+      const body = document.body;
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') { body.classList.add('light'); themeIcon.classList.replace('fa-moon', 'fa-sun'); }
+      themeToggle.addEventListener('click', () => {
+        body.classList.toggle('light');
+        const isLight = body.classList.contains('light');
+        themeIcon.classList.toggle('fa-sun', isLight);
+        themeIcon.classList.toggle('fa-moon', !isLight);
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+      });
+    });
+  </script>
+
+</body>
+</html>

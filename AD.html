@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projet BTS – Windows Server & Active Directory</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: #0a0219;
+      color: #f3e8ff;
+      overflow-x: hidden;
+    }
+
+    /* ===== Cartes / titres ===== */
+    .card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(168, 85, 247, 0.22);
+      border-radius: 20px;
+      padding: 2rem;
+      transition: all .25s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 22px rgba(168, 85, 247, 0.18);
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #c084fc;
+      margin-bottom: 1.5rem;
+      line-height: 1.15;
+    }
+
+    /* ===== Badges ===== */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      color: #e9d5ff;
+      padding: .35rem .8rem;
+      border-radius: 9999px;
+      font-size: .85rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* ===== Bouton thème ===== */
+    .btn-primary {
+      background: linear-gradient(90deg, #7e22ce, #a855f7);
+      color: #fff;
+      width: 44px;
+      height: 44px;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      cursor: pointer;
+      transition: all .25s ease;
+    }
+
+    /* ===== Topbar ===== */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      background: rgba(18, 0, 33, 0.80);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(168, 85, 247, 0.25);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      font-weight: 800;
+      color: #c084fc;
+      text-decoration: none;
+    }
+
+    /* ===== MODE JOUR ===== */
+    body.light { background: #f9fafb; color: #111827; }
+    body.light .topbar { background: rgba(255,255,255,0.90); border-bottom: 1px solid #e5e7eb; }
+    body.light .card { background: #f5f3ff; border: 1px solid rgba(109, 40, 217, 0.22); }
+    body.light .section-title { color: #6d28d9; }
+    body.light .badge { background: rgba(109, 40, 217, 0.10); border-color: rgba(109, 40, 217, 0.25); color: #4c1d95; }
+    body.light .text-gray-300, body.light .text-gray-400, body.light p, body.light li, body.light strong, body.light span, body.light div { color: #111827 !important; }
+    body.light h2 { color: #6d28d9 !important; }
+  </style>
+</head>
+
+<body>
+
+<div class="topbar">
+  <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <span class="badge">
+        <i class="fa-brands fa-windows"></i>
+        Administration Windows
+      </span>
+      <span class="text-sm text-gray-300">
+        Projet BTS – Brandon Betancourt
+      </span>
+    </div>
+    <button id="themeToggle" class="btn-primary" aria-label="Changer de thème">
+      <i id="themeIcon" class="fa-solid fa-moon"></i>
+    </button>
+  </div>
+</div>
+
+  <main class="px-6 py-12 max-w-5xl mx-auto">
+
+    <a href="index.html#projet-ad" class="back-link mb-6 inline-flex">
+  <i class="fa-solid fa-arrow-left"></i>
+  Retour aux projets
+</a>
+
+    <h1 class="section-title">
+      🛡️ Piloter un réseau d'entreprise (Windows Server & AD DS)
+    </h1>
+
+    <div class="card mb-8">
+      <h2 class="text-purple-300 font-semibold mb-2">📌 C'est quoi ce projet ?</h2>
+      <p class="text-gray-300">
+        Le but de ce projet était de créer le "cœur" informatique d'une entreprise. J'ai mis en place un serveur Windows capable de gérer tous les utilisateurs, leurs mots de passe et leurs droits d'accès de manière centralisée.
+      </p>
+    </div>
+
+    <div class="card mb-8">
+      <h2 class="text-purple-300 font-semibold mb-2">🎯 Les objectifs clés</h2>
+      <ul class="list-disc list-inside text-gray-400 space-y-3">
+        <li><strong>Active Directory (AD DS) :</strong> Créer un annuaire pour ranger les employés par service (Compta, RH, etc.).</li>
+        <li><strong>Sécurité & GPO :</strong> Appliquer des règles automatiques (ex: fond d'écran imposé, interdiction d'accéder au panneau de configuration).</li>
+        <li><strong>Services Réseau :</strong> Configurer le <strong>DNS</strong> (pour les noms de domaine) et le <strong>DHCP</strong> (pour donner une adresse IP auto aux PC).</li>
+      </ul>
+    </div>
+
+    <div class="card mb-8">
+      <h2 class="text-purple-300 font-semibold mb-2">🛠️ Ce que j'ai réalisé</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="p-4 bg-white/5 rounded-xl border border-purple-500/20">
+          <strong class="text-purple-300">Gestion des dossiers</strong>
+          <p class="text-sm text-gray-400">Mise en place de lecteurs réseaux partagés qui se connectent tout seuls à l'allumage du PC.</p>
+        </div>
+        <div class="p-4 bg-white/5 rounded-xl border border-purple-500/20">
+          <strong class="text-purple-300">Centralisation</strong>
+          <p class="text-sm text-gray-400">Un utilisateur peut se connecter sur n'importe quel ordinateur du réseau avec ses identifiants.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-8">
+      <h2 class="text-purple-300 font-semibold mb-2">✅ Bilan des compétences</h2>
+      <p class="text-gray-300">
+        Ce projet m'a appris à administrer un réseau professionnel. C'est une brique essentielle pour assurer la <strong>cybersécurité</strong> et la productivité des salariés en contrôlant précisément qui a accès à quoi.
+      </p>
+    </div>
+
+    <div class="card mt-10">
+      <h2 class="text-purple-300 font-semibold mb-4">🖼️ Captures d'écran du serveur</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="card text-center">
+          <div class="mb-3 text-4xl text-purple-400"><i class="fa-solid fa-folder-tree"></i></div>
+          <p class="text-sm text-gray-400 font-semibold">Structure AD</p>
+          <p class="text-xs text-gray-500">Organisation des utilisateurs et groupes.</p>
+        </div>
+        <div class="card text-center">
+          <div class="mb-3 text-4xl text-purple-400"><i class="fa-solid fa-gears"></i></div>
+          <p class="text-sm text-gray-400 font-semibold">Stratégies GPO</p>
+          <p class="text-xs text-gray-500">Règles de sécurité appliquées aux PC.</p>
+        </div>
+        <div class="card text-center">
+          <div class="mb-3 text-4xl text-purple-400"><i class="fa-solid fa-network-wired"></i></div>
+          <p class="text-sm text-gray-400 font-semibold">DNS / DHCP</p>
+          <p class="text-xs text-gray-500">Services de connexion réseau.</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="py-10 text-center text-sm text-gray-500">
+    © 2026 — Brandon Betancourt | Fiche Projet Windows Server (BTS SIO)
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const themeToggle = document.getElementById('themeToggle');
+      const themeIcon = document.getElementById('themeIcon');
+      const body = document.body;
+      const savedTheme = localStorage.getItem('theme');
+
+      if (savedTheme === 'light') {
+        body.classList.add('light');
+        themeIcon.classList.replace('fa-moon', 'fa-sun');
+      }
+
+      themeToggle.addEventListener('click', () => {
+        body.classList.toggle('light');
+        const isLight = body.classList.contains('light');
+        themeIcon.classList.toggle('fa-sun', isLight);
+        themeIcon.classList.toggle('fa-moon', !isLight);
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+      });
+    });
+  </script>
+
+</body>
+</html>
